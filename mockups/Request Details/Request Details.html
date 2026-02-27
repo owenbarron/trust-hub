@@ -1,340 +1,293 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Request Detail - Trust Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#008a94",
-                        "primary-dark": "#006c74",
-                        "primary-light": "#e0f2f3",
-                        "background-light": "#f5f8f8",
-                        "background-dark": "#0f2223",
-                        "surface-light": "#ffffff",
-                        "surface-dark": "#1a2c2d",
-                        "text-main": "#101818",
-                        "text-muted": "#5e8a8d",
-                        "border-color": "#dae6e7",
-                        "sidebar-bg": "#1e293b", // Dark gray for sidebar
-                        "sidebar-text": "#f8fafc", // White/light text for sidebar
-                        "sidebar-text-muted": "#94a3b8", // Muted text for sidebar
-                        "sidebar-hover": "#334155", // Hover state
-                    },
-                    fontFamily: {
-                        display: ["Public Sans", "sans-serif"],
-                    },
-                },
-            },
-        }
-    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Trust Hub - Request Detail</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#008a94",
+            "primary-dark": "#006c74",
+            "primary-light": "#e0f2f3",
+            "background-light": "#f5f8f8",
+            "surface-light": "#ffffff",
+            "border-light": "#dae6e7",
+            "text-main": "#101818",
+            "text-muted": "#5e8a8d",
+            "slate-custom": "#4C4C4E",
+          },
+          fontFamily: {
+            display: ["Public Sans", "sans-serif"],
+            sans: ["Public Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    }
+  </script>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-100 min-h-screen flex antialiased overflow-hidden">
-<aside class="w-64 bg-sidebar-bg border-r border-gray-700 flex flex-col justify-between shrink-0 h-screen z-10 transition-colors duration-200">
-<div class="flex flex-col h-full">
-<div class="p-6">
-<div class="flex gap-3 items-center">
-<div class="bg-primary/20 rounded-lg p-2 flex items-center justify-center text-primary-light">
-<span class="material-symbols-outlined" style="">security</span>
-</div>
-<div class="flex flex-col">
-<h1 class="text-sidebar-text text-base font-bold leading-tight" style="">Trust Hub</h1>
-<p class="text-sidebar-text-muted text-xs font-normal" style=""><br></p>
-</div>
-</div>
-</div>
-<nav class="flex-1 overflow-y-auto px-4 space-y-1">
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sidebar-text-muted hover:bg-sidebar-hover hover:text-sidebar-text transition-colors group" href="#" style="">
-<span class="material-symbols-outlined group-hover:text-sidebar-text" style="">grid_view</span>
-<span class="text-sm font-medium" style="">Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sidebar-text-muted hover:bg-sidebar-hover hover:text-sidebar-text transition-colors group" href="#" style="">
-<span class="material-symbols-outlined group-hover:text-sidebar-text" style="">verified_user</span>
-<span class="text-sm font-medium" style="">Controls</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/20 text-primary-light transition-colors group" href="#" style="">
-<span class="material-symbols-outlined" style="">fact_check</span>
-<span class="text-sm font-medium" style="">Requests</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sidebar-text-muted hover:bg-sidebar-hover hover:text-sidebar-text transition-colors group" href="#" style="">
-<span class="material-symbols-outlined group-hover:text-sidebar-text" style="">storefront</span>
-<span class="text-sm font-medium" style="">Vendors</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sidebar-text-muted hover:bg-sidebar-hover hover:text-sidebar-text transition-colors group" href="#" style="">
-<span class="material-symbols-outlined group-hover:text-sidebar-text" style="">menu_book</span>
-<span class="text-sm font-medium" style="">Policy Center</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sidebar-text-muted hover:bg-sidebar-hover hover:text-sidebar-text transition-colors group" href="#" style="">
-<span class="material-symbols-outlined group-hover:text-sidebar-text" style="">settings</span>
-<span class="text-sm font-medium" style="">Settings</span>
-</a>
-</nav>
-<div class="p-4 border-t border-gray-700">
-<div class="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-sidebar-hover cursor-pointer transition-colors">
-<div class="h-9 w-9 rounded-full bg-primary flex items-center justify-center text-white text-sm font-medium" style="">
-                        JD
-                    </div>
-<div class="flex flex-col">
-<span class="text-sidebar-text text-sm font-medium leading-none" style="">Jane Doe</span>
-<span class="text-sidebar-text-muted text-xs mt-1" style="">Admin</span>
-</div>
-</div>
-</div>
-</div>
-</aside>
-<main class="flex-1 flex flex-col h-screen overflow-hidden bg-background-light dark:bg-background-dark">
-<header class="bg-surface-light dark:bg-surface-dark border-b border-border-color dark:border-gray-700 px-8 py-5 shrink-0">
-<div class="flex flex-col gap-4">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2 text-sm text-text-muted dark:text-gray-400">
-<a class="hover:text-primary transition-colors" href="#" style="">Requests</a>
-<span class="material-symbols-outlined text-base" style="">chevron_right</span>
-<span class="text-text-main dark:text-white font-medium" style="">REQ001</span>
-</div>
-<div class="flex items-center gap-3">
-<button class="p-2 text-text-muted hover:text-primary transition-colors rounded-full hover:bg-background-light dark:hover:bg-gray-800" style="">
-<span class="material-symbols-outlined" style="">share</span>
-</button>
-<button class="p-2 text-text-muted hover:text-primary transition-colors rounded-full hover:bg-background-light dark:hover:bg-gray-800" style="">
-<span class="material-symbols-outlined" style="">more_horiz</span>
-</button>
-</div>
-</div>
-<div class="flex items-end justify-between gap-6 flex-wrap">
-<div class="flex flex-col gap-1">
-<h1 class="text-2xl font-bold text-text-main dark:text-white tracking-tight" style="">HRIS Listing</h1>
-<div class="flex items-center gap-2 text-xs text-text-muted dark:text-gray-400">
-<span class="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 px-2 py-0.5 rounded font-medium" style="">SOC 2 Type II</span>
-<span class="" style="">• Created by Sydney Buchel</span>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<div class="flex -space-x-2">
-<div class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-surface-dark bg-yellow-200 flex items-center justify-center text-xs font-bold text-yellow-800" style="" title="Dan H.">DH</div>
-<div class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-surface-dark bg-purple-200 flex items-center justify-center text-xs font-bold text-purple-800" style="" title="Dave O.">DO</div>
-<div class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-surface-dark bg-green-200 flex items-center justify-center text-xs font-bold text-green-800" style="" title="Jane H.">JH</div>
-<div class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-surface-dark bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-xs font-medium text-text-muted dark:text-gray-300" style="">+2</div>
-</div>
-<div class="relative min-w-[200px]">
-<select class="appearance-none w-full bg-white dark:bg-gray-800 border border-border-color dark:border-gray-600 text-text-main dark:text-white text-sm rounded-lg px-4 py-2.5 pr-10 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary font-medium shadow-sm transition-shadow">
-<option>Submitted to auditor</option>
-<option>Draft</option>
-<option>In Review</option>
-<option>Completed</option>
-</select>
-<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-text-muted">
-<span class="material-symbols-outlined text-xl" style="">expand_more</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</header>
-<div class="flex-1 overflow-y-auto p-8">
-<div class="grid grid-cols-12 gap-8 max-w-[1400px] mx-auto pb-12">
-<div class="col-span-12 lg:col-span-8 flex flex-col gap-6">
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-color dark:border-gray-700 shadow-sm p-6">
-<div class="flex items-start gap-4">
-<div class="flex-1">
-<h3 class="text-sm font-semibold text-text-main dark:text-white uppercase tracking-wider mb-2" style="">Request Description</h3>
-<div class="prose prose-sm dark:prose-invert max-w-none text-text-main dark:text-gray-300 leading-relaxed space-y-4">
-<p class="" style="">Please provide the following system-generated lists from your HRIS for the audit period:<br></p><div class="" style="">-&nbsp; All active employees as of 12/31/2025</div><div class="" style="">-&nbsp; New hires and terminations during the audit period</div><div class="" style="">- A list of users with access to administrative roles (HRIS admin, payroll admin)<br><br>Include screenshots or exports that clearly show the data source and time period. If exports are provided, include a screenshot of the export configuration.</div><p class="" style=""></p>
-<p class="text-text-muted dark:text-gray-400 italic" style=""><br></p>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-color dark:border-gray-700 shadow-sm overflow-hidden">
-<div class="px-6 py-4 border-b border-border-color dark:border-gray-700 flex justify-between items-center bg-gray-50/50 dark:bg-gray-800/50">
-<h3 class="text-sm font-semibold text-text-main dark:text-white uppercase tracking-wider" style="">Evidence</h3>
-<button class="bg-primary hover:bg-primary-dark text-white text-xs font-medium px-3 py-1.5 rounded transition-colors flex items-center gap-1.5" style="">
-<span class="material-symbols-outlined text-sm" style="">upload_file</span>Add Evidence</button>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="text-xs text-text-muted dark:text-gray-400 border-b border-border-color dark:border-gray-700">
-<th class="px-6 py-3 font-medium uppercase w-1/2" style="">File Name</th>
-<th class="px-6 py-3 font-medium uppercase" style="">Version</th>
-<th class="px-6 py-3 font-medium uppercase" style="">Provided Date</th>
-<th class="px-6 py-3 font-medium uppercase text-right" style="">Actions</th>
-</tr>
-</thead>
-<tbody class="text-sm">
-<tr class="group hover:bg-background-light dark:hover:bg-gray-800 transition-colors border-b border-border-color dark:border-gray-700 last:border-0">
-<td class="px-6 py-3.5" style="">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-purple-500" style="">image</span>
-<span class="text-text-main dark:text-gray-200 font-medium" style="">HRIS_Config_Screenshot.png</span>
-</div>
-</td>
-<td class="px-6 py-3.5 text-text-muted" style="">v1.2</td>
-<td class="px-6 py-3.5 text-text-muted" style="">Oct 25, 2023</td>
-<td class="px-6 py-3.5 text-right" style="">
-<button class="text-text-muted hover:text-primary p-1" style=""><span class="material-symbols-outlined text-lg" style="">download</span></button>
-</td>
-</tr>
-<tr class="group hover:bg-background-light dark:hover:bg-gray-800 transition-colors border-b border-border-color dark:border-gray-700 last:border-0">
-<td class="px-6 py-3.5" style="">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-green-600" style="">table_view</span>
-<span class="text-text-main dark:text-gray-200 font-medium" style="">Active_Employees_Oct24.xlsx</span>
-</div>
-</td>
-<td class="px-6 py-3.5 text-text-muted" style="">v2.0</td>
-<td class="px-6 py-3.5 text-text-muted" style="">Oct 26, 2023</td>
-<td class="px-6 py-3.5 text-right" style="">
-<button class="text-text-muted hover:text-primary p-1" style=""><span class="material-symbols-outlined text-lg" style="">download</span></button>
-</td>
-</tr>
-<tr class="group hover:bg-background-light dark:hover:bg-gray-800 transition-colors border-b border-border-color dark:border-gray-700 last:border-0">
-<td class="px-6 py-3.5" style="">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-green-600" style="">table_view</span>
-<span class="text-text-main dark:text-gray-200 font-medium" style="">Termination_List_YTD.csv</span>
-</div>
-</td>
-<td class="px-6 py-3.5 text-text-muted" style="">v1.0</td>
-<td class="px-6 py-3.5 text-text-muted" style="">Oct 26, 2023</td>
-<td class="px-6 py-3.5 text-right" style="">
-<button class="text-text-muted hover:text-primary p-1" style=""><span class="material-symbols-outlined text-lg" style="">download</span></button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-color dark:border-gray-700 shadow-sm p-6">
-<div class="flex justify-between items-center mb-4">
-<h3 class="text-sm font-semibold text-text-main dark:text-white uppercase tracking-wider" style="">Activity &amp; Comments</h3>
-<label class="inline-flex items-center cursor-pointer" style="">
-<input checked="" class="sr-only peer" type="checkbox" value="">
-<div class="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/50 dark:peer-focus:ring-primary/80 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
-<span class="ms-3 text-xs font-medium text-text-muted dark:text-gray-400" style="">Visible to auditor</span>
-</label>
-</div>
-<div class="flex gap-4 mb-8">
-<div class="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-medium shrink-0" style="">JD</div>
-<div class="flex-1">
-<textarea class="w-full bg-background-light dark:bg-gray-800 border border-border-color dark:border-gray-600 rounded-lg p-3 text-sm text-text-main dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none h-24" placeholder="Write a comment or mention @teammate..."></textarea>
-<div class="flex justify-between items-center mt-2">
-<div class="flex gap-2">
-<button class="text-text-muted hover:text-primary p-1" style=""><span class="material-symbols-outlined text-lg" style="">attach_file</span></button>
-<button class="text-text-muted hover:text-primary p-1" style=""><span class="material-symbols-outlined text-lg" style="">format_bold</span></button>
-<button class="text-text-muted hover:text-primary p-1" style=""><span class="material-symbols-outlined text-lg" style="">format_list_bulleted</span></button>
-</div>
-<button class="bg-primary hover:bg-primary-dark text-white text-sm font-medium px-4 py-1.5 rounded transition-colors" style="">Post Comment</button>
-</div>
-</div>
-</div>
-<div class="relative pl-4 border-l border-border-color dark:border-gray-700 space-y-8">
-<div class="relative group">
-<div class="absolute -left-[21px] top-0 h-2.5 w-2.5 rounded-full bg-border-color dark:bg-gray-600 ring-4 ring-white dark:ring-surface-dark group-hover:bg-primary transition-colors"></div>
-<div class="flex gap-3">
-<div class="h-8 w-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xs font-bold shrink-0" style="">DC</div>
-<div>
-<div class="flex items-baseline gap-2 mb-1">
-<span class="text-sm font-semibold text-text-main dark:text-white" style="">Dan Chemnitz</span>
-<span class="text-xs text-text-muted" style="">uploaded 3 files</span>
-<span class="text-xs text-text-muted ml-auto" style="">Oct 26, 2:30 PM</span>
-</div>
-<p class="text-sm text-text-main dark:text-gray-300" style="">Here are the updated lists based on the HRIS sync this morning. Terminations include contractor conversions.</p>
-</div>
-</div>
-</div>
-<div class="relative group">
-<div class="absolute -left-[21px] top-0 h-2.5 w-2.5 rounded-full bg-border-color dark:bg-gray-600 ring-4 ring-white dark:ring-surface-dark group-hover:bg-primary transition-colors"></div>
-<div class="flex gap-3">
-<div class="h-8 w-8 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-xs font-bold shrink-0" style="">DC</div>
-<div>
-<div class="flex items-baseline gap-2 mb-1">
-<span class="text-sm font-semibold text-text-main dark:text-white" style="">Dan Chemnitz</span>
-<span class="text-xs text-text-muted" style="">changed status</span>
-<span class="text-xs text-text-muted ml-auto" style="">Oct 26, 2:31 PM</span>
-</div>
-<div class="flex items-center gap-2 text-sm mt-1">
-<span class="px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-text-muted text-xs line-through" style="">In Review</span>
-<span class="material-symbols-outlined text-xs text-text-muted" style="">arrow_forward</span>
-<span class="px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium" style="">Submitted to auditor</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-color dark:border-gray-700 shadow-sm p-5">
-<h3 class="text-xs font-semibold text-text-muted dark:text-gray-400 uppercase tracking-wider mb-4" style="">Request Details</h3>
-<div class="space-y-4">
-<div class="flex justify-between items-center py-1">
-<span class="text-sm text-text-muted" style="">Due Date</span>
-<span class="text-sm font-medium text-text-main dark:text-white" style="">December 31, 2026</span>
-</div>
-<div class="flex justify-between items-center py-1 border-t border-border-color dark:border-gray-700/50 pt-3">
-<span class="text-sm text-text-muted" style="">Priority</span>
-<span class="flex items-center gap-1.5 text-sm font-medium text-orange-600 bg-orange-50 dark:bg-orange-900/20 dark:text-orange-300 px-2 py-0.5 rounded" style="">
-<span class="material-symbols-outlined text-base" style="">align_horizontal_center</span>
-                                    Medium
-                                </span>
-</div>
-<div class="flex justify-between items-center py-1 border-t border-border-color dark:border-gray-700/50 pt-3">
-<span class="text-sm text-text-muted" style="">ID</span>
-<span class="text-sm font-mono text-text-main dark:text-white bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded" style="">R-18</span>
-</div>
-<div class="flex justify-between items-center py-1 border-t border-border-color dark:border-gray-700/50 pt-3">
-<span class="text-sm text-text-muted" style="">Related Control</span>
-<a class="text-sm font-medium text-primary hover:underline" href="#" style="">CTL-001</a>
-</div>
-</div>
-</div>
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-color dark:border-gray-700 shadow-sm p-5">
-<div class="flex justify-between items-center mb-4">
-<h3 class="text-xs font-semibold text-text-muted dark:text-gray-400 uppercase tracking-wider" style="">Assignee</h3>
-<button class="text-primary hover:text-primary-dark text-xs font-medium" style="">Change</button>
-</div>
-<div class="flex items-center gap-3">
-<div class="h-10 w-10 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center text-sm font-bold shrink-0" style="">DC</div>
-<div class="flex flex-col">
-<span class="text-sm font-semibold text-text-main dark:text-white" style="">Dan Chemnitz</span>
-<span class="text-xs text-text-muted" style="">Compliance Consultant</span>
-</div>
-</div>
-</div>
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-border-color dark:border-gray-700 shadow-sm p-5">
-<div class="flex justify-between items-center mb-4">
-<h3 class="text-xs font-semibold text-text-muted dark:text-gray-400 uppercase tracking-wider" style="">Linked Objects</h3>
-<button class="text-primary hover:text-primary-dark text-xs font-medium" style="">Link</button>
-</div>
-<div class="space-y-3">
-<a class="flex items-center gap-3 p-2 rounded-lg hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="#" style="">
-<div class="bg-primary/10 text-primary p-1.5 rounded">
-<span class="material-symbols-outlined text-lg" style="">shield</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="text-sm font-medium text-text-main dark:text-white truncate group-hover:text-primary transition-colors" style="">CTL-001 Access Reviews</span>
-<span class="text-xs text-text-muted" style="">Control</span>
-</div>
-</a>
-<a class="flex items-center gap-3 p-2 rounded-lg hover:bg-background-light dark:hover:bg-gray-800 transition-colors group" href="#" style="">
-<div class="bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 p-1.5 rounded">
-<span class="material-symbols-outlined text-lg" style="">business</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="text-sm font-medium text-text-main dark:text-white truncate group-hover:text-blue-600 transition-colors" style="">BARR Advisory</span>
-<span class="text-xs text-text-muted" style="">Auditor Firm</span>
-</div>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-</body></html>
+<body class="flex h-screen overflow-hidden text-gray-800 font-display">
+  <aside class="w-[240px] flex-shrink-0 flex flex-col h-full bg-[#4C4C4E] text-gray-300 shadow-xl z-20">
+    <div class="px-5 py-4 flex items-center gap-3 mb-2">
+      <div class="w-8 h-8 bg-white/10 rounded flex items-center justify-center text-white">
+        <span class="material-symbols-outlined text-[20px]">shield</span>
+      </div>
+      <h1 class="text-white font-semibold text-base tracking-tight">Trust Hub</h1>
+    </div>
+    <nav class="flex-1 flex flex-col space-y-0.5 px-3">
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">dashboard</span>
+        Dashboard
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">verified_user</span>
+        Controls
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded bg-[#008C95] text-white shadow-sm" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3">fact_check</span>
+        Requests
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">grid_view</span>
+        Criteria
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">policy</span>
+        Policies
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">folder_open</span>
+        Evidence
+      </a>
+      <div class="mt-auto pt-4">
+        <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+          <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">history</span>
+          Audits
+        </a>
+      </div>
+    </nav>
+    <div class="p-4 border-t border-white/10 bg-black/20 mt-auto">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold border border-white/20">OB</div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-white">Owen Barron</span>
+          <span class="text-[10px] text-gray-400">Admin</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light">
+    <header class="bg-white px-6 pt-6 pb-3 border-b border-gray-200 flex-shrink-0">
+      <div class="flex items-start justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
+            <a class="hover:text-primary" href="#">Requests</a>
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+            <span class="text-gray-900 font-medium">Follow Up - 07</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Asset Management Compliance</h2>
+            <span class="bg-red-50 text-red-700 border border-red-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Needs revision</span>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">Additional support requested for CTL-071 testing scope and supporting evidence traceability.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="bg-white text-gray-400 border border-gray-300 px-4 py-2 rounded-md text-sm font-medium cursor-not-allowed" disabled>Update Status</button>
+          <button class="bg-white text-gray-400 border border-gray-300 px-4 py-2 rounded-md text-sm font-medium cursor-not-allowed inline-flex items-center gap-2" disabled>
+            <span class="material-symbols-outlined text-[18px]">upload_file</span>
+            Upload Evidence
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 mt-4">
+        <span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wide">2025 SOC 2 TYPE II - CLOSED</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-gray-100 text-xs text-gray-600 font-semibold border border-gray-200">Priority: Medium</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-gray-100 text-xs text-gray-600 font-semibold border border-gray-200">Assignee: Owen Barron</span>
+      </div>
+    </header>
+
+    <div class="mx-6 mt-4 px-4 py-3 rounded-lg border border-amber-200 bg-amber-50 text-amber-800 text-sm flex items-start gap-2">
+      <span class="material-symbols-outlined text-[18px] mt-0.5">warning</span>
+      <span>Viewing closed audit 2025 SOC 2 Type II (closed Jan 15, 2026). Status changes, uploads, relinking, and comment posting are disabled.</span>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-6 py-4">
+      <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-8 flex flex-col gap-6">
+          <section class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Request Details</h3>
+              <span class="text-xs text-gray-500">Source: Auditor follow-up</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Request ID</p>
+                <p class="text-sm text-gray-900 font-medium mt-1">Follow Up - 07</p>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Due Date</p>
+                <p class="text-sm text-gray-900 font-medium mt-1">Dec 20, 2025</p>
+              </div>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed">Please provide additional evidence demonstrating compliance with asset management expectations for CTL-071. Prior submission lacked complete ownership attribution and did not include retained review artifacts for decommissioned assets.</p>
+          </section>
+
+          <section class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+            <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-3">Linked Controls</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium">CTL-071 Asset Management Compliance</span>
+              <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium">CTL-022 Firewall Rule Reviews</span>
+            </div>
+          </section>
+
+          <section class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200 bg-gray-50 flex items-center justify-between">
+              <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Evidence</h3>
+              <button class="bg-white text-gray-400 border border-gray-300 px-3 py-1.5 rounded-md text-xs font-medium cursor-not-allowed" disabled>Add Evidence</button>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full text-left border-collapse">
+                <thead class="bg-gray-50 border-b border-gray-200">
+                  <tr>
+                    <th class="py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500">File Name</th>
+                    <th class="py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Type</th>
+                    <th class="py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Uploaded</th>
+                    <th class="py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Uploaded By</th>
+                    <th class="py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Linked Controls</th>
+                    <th class="py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                    <td class="px-3 py-4 align-top text-sm text-gray-900">asset_inventory_q4.csv</td>
+                    <td class="px-3 py-4 align-top"><span class="bg-green-50 text-green-700 px-1.5 py-0.5 rounded text-[10px] font-bold">CSV</span></td>
+                    <td class="px-3 py-4 align-top text-sm text-gray-700">Dec 8, 2025</td>
+                    <td class="px-3 py-4 align-top text-sm text-gray-700">Owen Barron</td>
+                    <td class="px-3 py-4 align-top">
+                      <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium">CTL-071</span>
+                    </td>
+                    <td class="px-3 py-4 align-top text-right text-sm text-gray-400">Read only</td>
+                  </tr>
+                  <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                    <td class="px-3 py-4 align-top text-sm text-gray-900">asset_disposal_evidence.pdf</td>
+                    <td class="px-3 py-4 align-top"><span class="bg-red-50 text-red-700 px-1.5 py-0.5 rounded text-[10px] font-bold">PDF</span></td>
+                    <td class="px-3 py-4 align-top text-sm text-gray-700">Dec 9, 2025</td>
+                    <td class="px-3 py-4 align-top text-sm text-gray-700">Owen Barron</td>
+                    <td class="px-3 py-4 align-top">
+                      <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium">CTL-071</span>
+                      <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium">CTL-022</span>
+                    </td>
+                    <td class="px-3 py-4 align-top text-right text-sm text-gray-400">Read only</td>
+                  </tr>
+                  <tr class="group transition-colors hover:bg-[#F1F5F9]">
+                    <td class="px-3 py-4 align-top text-sm text-gray-900">asset_owner_matrix.png</td>
+                    <td class="px-3 py-4 align-top"><span class="bg-purple-50 text-purple-700 px-1.5 py-0.5 rounded text-[10px] font-bold">PNG</span></td>
+                    <td class="px-3 py-4 align-top text-sm text-gray-700">Dec 11, 2025</td>
+                    <td class="px-3 py-4 align-top text-sm text-gray-700">Owen Barron</td>
+                    <td class="px-3 py-4 align-top">
+                      <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium">CTL-071</span>
+                    </td>
+                    <td class="px-3 py-4 align-top text-right text-sm text-gray-400">Read only</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-xs text-gray-500 px-6 py-3 border-t border-gray-100">Evidence uploaded from this request is auto-linked to the request's linked controls in the same selected audit.</p>
+          </section>
+
+          <section class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200 bg-gray-50">
+              <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Comments</h3>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="border border-gray-200 rounded-md p-3">
+                <div class="flex items-center justify-between mb-1">
+                  <p class="text-sm font-medium text-gray-900">Sydney Buchel</p>
+                  <span class="bg-[#E6F8FB] text-[#0E7490] px-2 py-0.5 rounded text-xs font-medium">Visible to auditor</span>
+                </div>
+                <p class="text-xs text-gray-500 mb-2">Dec 12, 2025 10:18 AM</p>
+                <p class="text-sm text-gray-700">Please include explicit asset owner attribution and retired asset timestamps in the next revision.</p>
+              </div>
+
+              <div class="border border-gray-200 rounded-md p-3">
+                <div class="flex items-center justify-between mb-1">
+                  <p class="text-sm font-medium text-gray-900">Owen Barron</p>
+                  <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded text-xs font-medium">Private</span>
+                </div>
+                <p class="text-xs text-gray-500 mb-2">Dec 12, 2025 11:02 AM</p>
+                <p class="text-sm text-gray-700">Need updated export from ITAM before we can close this follow-up.</p>
+              </div>
+            </div>
+            <div class="px-6 py-4 border-t border-gray-200 bg-gray-50">
+              <textarea class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-500 bg-gray-100 cursor-not-allowed" disabled rows="3">Comment posting disabled for closed audits.</textarea>
+              <div class="flex justify-end mt-2">
+                <button class="bg-gray-200 text-gray-500 px-4 py-2 rounded-md text-sm font-medium cursor-not-allowed" disabled>Post Comment</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="lg:col-span-4 flex flex-col gap-6">
+          <section class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Status Summary</h4>
+            <div class="space-y-3 text-sm">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-500">Status</span>
+                <span class="bg-red-50 text-red-700 border border-red-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Needs revision</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-500">Priority</span>
+                <span class="text-gray-900 font-medium">Medium</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-500">Assignee</span>
+                <span class="text-gray-900 font-medium">Owen Barron</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-500">Due date</span>
+                <span class="text-gray-900 font-medium">Dec 20, 2025</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Audit Context</h4>
+            <div class="space-y-3 text-sm">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-500">Audit</span>
+                <span class="text-gray-900 font-medium">2025 SOC 2 Type II</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-500">State</span>
+                <span class="bg-gray-100 text-gray-600 border border-gray-200 px-2.5 py-1 rounded-full text-xs font-medium">Closed</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-500">Closed at</span>
+                <span class="text-gray-900 font-medium">Jan 15, 2026</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-500">Request updated</span>
+                <span class="text-gray-900 font-medium">Dec 12, 2025</span>
+              </div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

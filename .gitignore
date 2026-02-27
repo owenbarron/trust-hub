@@ -1,1 +1,8 @@
+node_modules/
+.next/
+tsconfig.tsbuildinfo
+trust-hub.db
+*.db-shm
+*.db-wal
+.DS_Store
 seed-data/evidence/

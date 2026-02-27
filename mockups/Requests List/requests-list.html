@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Trust Hub - Requests</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#008a94",
+            "primary-dark": "#006c74",
+            "primary-light": "#e0f2f3",
+            "background-light": "#f5f8f8",
+            "surface-light": "#ffffff",
+            "border-light": "#dae6e7",
+            "text-main": "#101818",
+            "text-muted": "#5e8a8d",
+            "slate-custom": "#4C4C4E",
+          },
+          fontFamily: {
+            display: ["Public Sans", "sans-serif"],
+            sans: ["Public Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .custom-scroll::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 4px;
+    }
+
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #a8a8a8;
+    }
+
+    .summary-preview {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="flex h-screen overflow-hidden text-gray-800 font-display">
+  <aside class="w-[240px] flex-shrink-0 flex flex-col h-full bg-[#4C4C4E] text-gray-300 shadow-xl z-20">
+    <div class="px-5 py-4 flex items-center gap-3 mb-2">
+      <div class="w-8 h-8 bg-white/10 rounded flex items-center justify-center text-white">
+        <span class="material-symbols-outlined text-[20px]">shield</span>
+      </div>
+      <h1 class="text-white font-semibold text-base tracking-tight">Trust Hub</h1>
+    </div>
+    <nav class="flex-1 flex flex-col space-y-0.5 px-3">
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">dashboard</span>
+        Dashboard
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">verified_user</span>
+        Controls
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded bg-[#008C95] text-white shadow-sm" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3">fact_check</span>
+        Requests
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">grid_view</span>
+        Criteria
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">policy</span>
+        Policies
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">folder_open</span>
+        Evidence
+      </a>
+      <div class="pt-4 mt-3 border-t border-white/10">
+        <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+          <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">history</span>
+          Audits
+        </a>
+      </div>
+    </nav>
+    <div class="p-4 border-t border-white/10 bg-black/20 mt-auto">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold border border-white/20">
+          OB
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-white">Owen Barron</span>
+          <span class="text-[10px] text-gray-400">Admin</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light">
+    <div class="bg-amber-50 border-b border-amber-200 px-6 py-2.5 flex items-center gap-2 flex-shrink-0">
+      <span class="material-symbols-outlined text-amber-600 text-[18px]">lock</span>
+      <p class="text-sm text-amber-800 font-medium">You are viewing a closed audit (2025 SOC 2 Type II). All data is read-only.</p>
+      <span class="text-xs text-amber-600 ml-auto">Closed Jan 15, 2026</span>
+    </div>
+
+    <header class="bg-white px-6 pt-6 pb-3 border-b border-gray-200 flex-shrink-0">
+      <div class="flex items-center justify-between gap-4">
+        <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Requests</h2>
+        <div class="flex items-center gap-2">
+          <span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wide">2025 SOC 2 TYPE II &mdash; CLOSED</span>
+          <span class="material-symbols-outlined text-gray-400 text-sm">lock</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-gray-100 text-xs text-gray-600 font-semibold border border-gray-200">54 requests</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="bg-white px-6 py-4 border-b border-gray-200 flex-shrink-0">
+      <div class="grid grid-cols-4 gap-4">
+        <article class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-primary">
+          <p class="text-xs font-medium text-gray-500 uppercase">Total</p>
+          <p class="text-2xl font-bold text-gray-900 mt-1">54</p>
+        </article>
+        <article class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-green-500">
+          <p class="text-xs font-medium text-gray-500 uppercase">Submitted</p>
+          <p class="text-2xl font-bold text-green-700 mt-1">45</p>
+        </article>
+        <article class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-red-500">
+          <p class="text-xs font-medium text-gray-500 uppercase">Needs Revision</p>
+          <p class="text-2xl font-bold text-red-700 mt-1">1</p>
+        </article>
+        <article class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-amber-500">
+          <p class="text-xs font-medium text-gray-500 uppercase">Follow-ups</p>
+          <p class="text-2xl font-bold text-amber-700 mt-1">8</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="bg-white px-6 py-3 border-b border-gray-200 flex items-center gap-3 flex-shrink-0 shadow-sm z-10">
+      <div class="min-w-[160px]">
+        <div class="flex items-center justify-between w-full border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Status</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="min-w-[140px]">
+        <div class="flex items-center justify-between w-full border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Priority</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="min-w-[160px]">
+        <div class="flex items-center justify-between w-full border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Assignee</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="flex-1 relative ml-2">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">search</span>
+        <input class="w-full border border-gray-300 rounded-md pl-10 pr-3 py-1.5 text-sm focus:ring-1 focus:ring-[#008C95] focus:border-[#008C95] placeholder-gray-400" placeholder="Search requests by reference or summary..." type="text"/>
+      </div>
+    </section>
+
+    <section class="flex-1 p-6 overflow-hidden bg-gray-50/50">
+      <div class="h-full bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col shadow-sm">
+        <div class="overflow-auto custom-scroll flex-1">
+          <table class="min-w-full text-left border-collapse">
+            <thead class="bg-gray-50 sticky top-0 z-10 border-b border-gray-200 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+              <tr>
+                <th class="w-[120px] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 cursor-pointer hover:text-gray-700 group">
+                  <div class="flex items-center gap-1">Reference <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">unfold_more</span></div>
+                </th>
+                <th class="w-[40%] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Summary</th>
+                <th class="w-[160px] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 cursor-pointer hover:text-gray-700 group">
+                  <div class="flex items-center gap-1">Status <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">unfold_more</span></div>
+                </th>
+                <th class="w-[15%] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Linked Controls</th>
+                <th class="w-[140px] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 cursor-pointer hover:text-gray-700 group">
+                  <div class="flex items-center gap-1">Assignee <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">unfold_more</span></div>
+                </th>
+                <th class="w-[100px] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 cursor-pointer hover:text-gray-700 group">
+                  <div class="flex items-center gap-1">Priority <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">unfold_more</span></div>
+                </th>
+                <th class="w-[80px] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 text-center cursor-pointer hover:text-gray-700 group">
+                  <div class="flex items-center justify-center gap-1">Evidence <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">unfold_more</span></div>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="text-sm">
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">REQ001</a></td>
+                <td class="px-3 py-4 align-top">
+                  <p class="text-sm text-gray-900 font-medium">HRIS Listing</p>
+                  <p class="text-xs text-gray-500 leading-relaxed summary-preview mt-0.5">Please provide the following system-generated lists from your HRIS...</p>
+                </td>
+                <td class="px-3 py-4 align-top"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Submitted</span></td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-001</span></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Dan Chemnitz</td>
+                <td class="px-3 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-medium">Medium</span></td>
+                <td class="px-3 py-4 align-top text-sm font-medium text-gray-500 text-center">3</td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">REQ002</a></td>
+                <td class="px-3 py-4 align-top">
+                  <p class="text-sm text-gray-900 font-medium">Vendor Inventory</p>
+                  <p class="text-xs text-gray-500 leading-relaxed summary-preview mt-0.5">Please provide the list or inventory of vendors...</p>
+                </td>
+                <td class="px-3 py-4 align-top"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Submitted</span></td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-005</span></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Dan Chemnitz</td>
+                <td class="px-3 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-medium">Medium</span></td>
+                <td class="px-3 py-4 align-top text-sm font-medium text-gray-500 text-center">1</td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">REQ003</a></td>
+                <td class="px-3 py-4 align-top">
+                  <p class="text-sm text-gray-900 font-medium">Vulnerability Population</p>
+                  <p class="text-xs text-gray-500 leading-relaxed summary-preview mt-0.5">Please provide a population of vulnerabilities identified...</p>
+                </td>
+                <td class="px-3 py-4 align-top"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Submitted</span></td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-020</span></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Dan Chemnitz</td>
+                <td class="px-3 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-medium">Medium</span></td>
+                <td class="px-3 py-4 align-top text-sm font-medium text-gray-500 text-center">2</td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">REQ009</a></td>
+                <td class="px-3 py-4 align-top">
+                  <p class="text-sm text-gray-900 font-medium">Weekly Security Meeting Evidence</p>
+                  <p class="text-xs text-gray-500 leading-relaxed summary-preview mt-0.5">Please provide evidence of the weekly meeting held by the security...</p>
+                </td>
+                <td class="px-3 py-4 align-top"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Submitted</span></td>
+                <td class="px-3 py-4 align-top">
+                  <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-008</span>
+                  <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-080</span>
+                </td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Dan Chemnitz</td>
+                <td class="px-3 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-medium">Medium</span></td>
+                <td class="px-3 py-4 align-top text-sm font-medium text-gray-500 text-center">1</td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">REQ035</a></td>
+                <td class="px-3 py-4 align-top">
+                  <p class="text-sm text-gray-900 font-medium">System User Lists</p>
+                  <p class="text-xs text-gray-500 leading-relaxed summary-preview mt-0.5">Please provide system-generated user lists that include all accounts...</p>
+                </td>
+                <td class="px-3 py-4 align-top"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Submitted</span></td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-060</span></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Dan Chemnitz</td>
+                <td class="px-3 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-medium">Medium</span></td>
+                <td class="px-3 py-4 align-top text-sm font-medium text-gray-500 text-center">4</td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">Follow Up - 01</a></td>
+                <td class="px-3 py-4 align-top">
+                  <p class="text-sm text-gray-900 font-medium">GitHub Users/Admins</p>
+                  <p class="text-xs text-gray-500 leading-relaxed summary-preview mt-0.5">We did not receive the list of GitHub Users/Admins...</p>
+                </td>
+                <td class="px-3 py-4 align-top"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Submitted</span></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-400">&mdash;</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Owen Barron</td>
+                <td class="px-3 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-medium">Medium</span></td>
+                <td class="px-3 py-4 align-top text-sm font-medium text-gray-500 text-center">1</td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100 bg-red-50/30">
+                <td class="px-3 py-4 align-top"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">Follow Up - 07</a></td>
+                <td class="px-3 py-4 align-top">
+                  <p class="text-sm text-gray-900 font-medium">Asset Management Compliance</p>
+                  <p class="text-xs text-gray-500 leading-relaxed summary-preview mt-0.5">We would like to expand testing for CTL-071...</p>
+                </td>
+                <td class="px-3 py-4 align-top"><span class="bg-red-50 text-red-700 border border-red-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Needs revision</span></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-400">&mdash;</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Owen Barron</td>
+                <td class="px-3 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-medium">Medium</span></td>
+                <td class="px-3 py-4 align-top text-sm font-medium text-gray-400 text-center">0</td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">REQ036</a></td>
+                <td class="px-3 py-4 align-top">
+                  <p class="text-sm text-gray-900 font-medium">Branch Protection Configs</p>
+                  <p class="text-xs text-gray-500 leading-relaxed summary-preview mt-0.5">Please provide screenshots of branch protection configurations...</p>
+                </td>
+                <td class="px-3 py-4 align-top"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Submitted</span></td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-064</span></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Dan Chemnitz</td>
+                <td class="px-3 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-medium">Medium</span></td>
+                <td class="px-3 py-4 align-top text-sm font-medium text-gray-500 text-center">2</td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">REQ045</a></td>
+                <td class="px-3 py-4 align-top">
+                  <p class="text-sm text-gray-900 font-medium">Q4 Access Reviews</p>
+                  <p class="text-xs text-gray-500 leading-relaxed summary-preview mt-0.5">Please provide evidence of the Q4 access reviews...</p>
+                </td>
+                <td class="px-3 py-4 align-top"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Submitted</span></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-400">&mdash;</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Dan Chemnitz</td>
+                <td class="px-3 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-medium">Medium</span></td>
+                <td class="px-3 py-4 align-top text-sm font-medium text-gray-500 text-center">3</td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">Follow-up - 08</a></td>
+                <td class="px-3 py-4 align-top">
+                  <p class="text-sm text-gray-900 font-medium">Computer Assets &amp; Antivirus</p>
+                  <p class="text-xs text-gray-500 leading-relaxed summary-preview mt-0.5">Please provide a manual list of computer assets...</p>
+                </td>
+                <td class="px-3 py-4 align-top"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2.5 py-1 rounded-full text-xs font-medium">Submitted</span></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-400">&mdash;</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-400 italic">Unassigned</td>
+                <td class="px-3 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-medium">Medium</span></td>
+                <td class="px-3 py-4 align-top text-sm font-medium text-gray-500 text-center">1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="border-t border-gray-200 bg-gray-50 px-4 py-2 flex items-center justify-between">
+          <p class="text-xs text-gray-500">Showing 1-10 of 54 requests</p>
+          <p class="text-xs text-gray-500">Sorted by: Reference (A-Z)</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

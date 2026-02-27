@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Trust Hub - Request Detail</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#008a94",
+            "primary-dark": "#006c74",
+            "primary-light": "#e0f2f3",
+            "background-light": "#f5f8f8",
+            "surface-light": "#ffffff",
+            "border-light": "#dae6e7",
+            "text-main": "#101818",
+            "text-muted": "#5e8a8d",
+            "slate-custom": "#4C4C4E",
+          },
+          fontFamily: {
+            display: ["Public Sans", "sans-serif"],
+            sans: ["Public Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="flex h-screen overflow-hidden text-gray-800 font-display">
+  <aside class="w-[240px] flex-shrink-0 flex flex-col h-full bg-[#4C4C4E] text-gray-300 shadow-xl z-20">
+    <div class="px-5 py-4 flex items-center gap-3 mb-2">
+      <div class="w-8 h-8 bg-white/10 rounded flex items-center justify-center text-white">
+        <span class="material-symbols-outlined text-[20px]">shield</span>
+      </div>
+      <h1 class="text-white font-semibold text-base tracking-tight">Trust Hub</h1>
+    </div>
+    <nav class="flex-1 flex flex-col space-y-0.5 px-3">
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">dashboard</span>
+        Dashboard
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">verified_user</span>
+        Controls
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded bg-[#008C95] text-white shadow-sm" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3">fact_check</span>
+        Requests
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">grid_view</span>
+        Criteria
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">policy</span>
+        Policies
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">folder_open</span>
+        Evidence
+      </a>
+      <div class="mt-auto pt-4">
+        <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+          <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">history</span>
+          Audits
+        </a>
+      </div>
+    </nav>
+    <div class="p-4 border-t border-white/10 bg-black/20 mt-auto">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold border border-white/20">
+          OB
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-white">Owen Barron</span>
+          <span class="text-[10px] text-gray-400">Admin</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light">
+    <header class="bg-white px-6 pt-6 pb-3 border-b border-gray-200 flex-shrink-0">
+      <div class="flex items-start justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-2 text-sm text-gray-500">
+            <a class="hover:text-primary" href="#">Requests</a>
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+            <span class="text-gray-900 font-medium">REQ-2026-014</span>
+          </div>
+          <div class="flex items-center gap-3 mt-2">
+            <h2 class="text-2xl font-bold text-gray-900 tracking-tight">HRIS Listing</h2>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">Submitted</span>
+          </div>
+          <p class="text-sm text-gray-500 mt-1">Provide system-generated lists from the HRIS for the audit period. Evidence requested by auditors.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">Send Reminder</button>
+          <button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#008C95] hover:bg-[#006C75] rounded-md shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">check_circle</span>
+            Mark Complete
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 mt-5">
+        <span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wide">2026 SOC 2 TYPE II &mdash; ACTIVE</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-gray-100 text-xs text-gray-600 font-semibold border border-gray-200">Priority: High</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-amber-50 text-xs text-amber-700 font-semibold border border-amber-200">Due Mar 10, 2026</span>
+      </div>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-6 py-6">
+      <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-8 flex flex-col gap-6">
+          <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Request Description</h3>
+              <span class="text-xs text-gray-500">Created by Sydney Buchel</span>
+            </div>
+            <div class="text-sm text-gray-700 leading-relaxed space-y-3">
+              <p>Please provide the following system-generated lists from your HRIS for the audit period:</p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>All active employees as of 12/31/2025</li>
+                <li>New hires and terminations during the audit period</li>
+                <li>Users with administrative access (HRIS admin, payroll admin)</li>
+              </ul>
+              <p>Include screenshots or exports that show the data source and time period. If exports are provided, include a screenshot of the export configuration.</p>
+            </div>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between bg-gray-50">
+              <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Evidence Submissions</h3>
+              <button class="flex items-center gap-1.5 bg-[#008C95] hover:bg-[#006C75] text-white text-xs font-medium px-3 py-1.5 rounded">
+                <span class="material-symbols-outlined text-[16px]">upload_file</span>
+                Add Evidence
+              </button>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-50 border-b border-gray-200">
+                  <tr>
+                    <th class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">File</th>
+                    <th class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Submitted By</th>
+                    <th class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Status</th>
+                    <th class="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 text-right">Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-gray-100 hover:bg-gray-50">
+                    <td class="px-4 py-4 text-sm text-gray-900">hris_active_employees_2025.csv</td>
+                    <td class="px-4 py-4 text-sm text-gray-600">Jenna Cole</td>
+                    <td class="px-4 py-4 text-sm">
+                      <span class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">Submitted</span>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-600 text-right">Feb 24, 2026</td>
+                  </tr>
+                  <tr class="border-b border-gray-100 hover:bg-gray-50">
+                    <td class="px-4 py-4 text-sm text-gray-900">hris_admin_roles.png</td>
+                    <td class="px-4 py-4 text-sm text-gray-600">Jenna Cole</td>
+                    <td class="px-4 py-4 text-sm">
+                      <span class="inline-flex items-center gap-1 text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Needs review</span>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-600 text-right">Feb 26, 2026</td>
+                  </tr>
+                  <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-4 text-sm text-gray-900">new_hires_terminations_q4.xlsx</td>
+                    <td class="px-4 py-4 text-sm text-gray-600">HRIS System</td>
+                    <td class="px-4 py-4 text-sm">
+                      <span class="inline-flex items-center gap-1 text-xs font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded border border-green-200">Accepted</span>
+                    </td>
+                    <td class="px-4 py-4 text-sm text-gray-600 text-right">Mar 01, 2026</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Linked Controls</h3>
+              <span class="text-xs text-gray-500">3 controls</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-1 rounded text-xs font-medium">CTL-001 Employee Onboarding</span>
+              <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-1 rounded text-xs font-medium">CTL-011 Access Reviews</span>
+              <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-1 rounded text-xs font-medium">CTL-019 Background Checks</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 flex flex-col gap-6">
+          <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Assignees</h4>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-semibold text-gray-600">JC</div>
+                  <div>
+                    <p class="text-sm font-medium text-gray-900">Jenna Cole</p>
+                    <p class="text-xs text-gray-500">Primary owner</p>
+                  </div>
+                </div>
+                <span class="text-xs text-gray-500">People Ops</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-semibold text-gray-600">DH</div>
+                  <div>
+                    <p class="text-sm font-medium text-gray-900">Dan H.</p>
+                    <p class="text-xs text-gray-500">Contributor</p>
+                  </div>
+                </div>
+                <span class="text-xs text-gray-500">HRIS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Request Timeline</h4>
+            <div class="space-y-4">
+              <div>
+                <p class="text-xs font-semibold text-gray-500 uppercase">Feb 12, 2026</p>
+                <p class="text-sm text-gray-700">Request created by Sydney Buchel.</p>
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-gray-500 uppercase">Feb 24, 2026</p>
+                <p class="text-sm text-gray-700">Evidence submitted by Jenna Cole.</p>
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-gray-500 uppercase">Feb 26, 2026</p>
+                <p class="text-sm text-gray-700">Auditor requested clarification on admin roles.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Audit Context</h4>
+            <div class="space-y-2 text-sm">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-500">Audit Window</span>
+                <span class="text-gray-900 font-medium">Oct 01, 2025 &mdash; Dec 31, 2025</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-500">Evidence Type</span>
+                <span class="text-gray-900 font-medium">System Report</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-gray-500">Requester</span>
+                <span class="text-gray-900 font-medium">Audit Team</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

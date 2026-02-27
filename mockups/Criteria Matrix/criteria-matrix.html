@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Trust Hub - Criteria Matrix</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#008a94",
+            "primary-dark": "#006c74",
+            "primary-light": "#e0f2f3",
+            "background-light": "#f5f8f8",
+            "surface-light": "#ffffff",
+            "border-light": "#dae6e7",
+            "text-main": "#101818",
+            "text-muted": "#5e8a8d",
+            "slate-custom": "#4C4C4E",
+          },
+          fontFamily: {
+            display: ["Public Sans", "sans-serif"],
+            sans: ["Public Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    .custom-scroll::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 4px;
+    }
+
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #a8a8a8;
+    }
+  </style>
+</head>
+<body class="flex h-screen overflow-hidden text-gray-800 font-display">
+  <aside class="w-[240px] flex-shrink-0 flex flex-col h-full bg-[#4C4C4E] text-gray-300 shadow-xl z-20">
+    <div class="px-5 py-4 flex items-center gap-3 mb-2">
+      <div class="w-8 h-8 bg-white/10 rounded flex items-center justify-center text-white">
+        <span class="material-symbols-outlined text-[20px]">shield</span>
+      </div>
+      <h1 class="text-white font-semibold text-base tracking-tight">Trust Hub</h1>
+    </div>
+    <nav class="flex-1 flex flex-col space-y-0.5 px-3">
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">dashboard</span>
+        Dashboard
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">verified_user</span>
+        Controls
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">fact_check</span>
+        Requests
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded bg-[#008C95] text-white shadow-sm" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3">grid_view</span>
+        Criteria
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">policy</span>
+        Policies
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">folder_open</span>
+        Evidence
+      </a>
+      <div class="pt-4 mt-3 border-t border-white/10">
+        <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+          <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">history</span>
+          Audits
+        </a>
+      </div>
+    </nav>
+    <div class="p-4 border-t border-white/10 bg-black/20 mt-auto">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold border border-white/20">
+          OB
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-white">Owen Barron</span>
+          <span class="text-[10px] text-gray-400">Admin</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light">
+    <header class="bg-white px-6 pt-6 pb-3 border-b border-gray-200 flex-shrink-0">
+      <div class="flex items-start justify-between gap-6">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Criteria Matrix</h2>
+          <p class="text-sm text-gray-500 mt-1">SOC 2 Trust Services Criteria mapped to controls. Control statuses reflect the selected audit.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wide">2026 SOC 2 TYPE II &mdash; ACTIVE</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-gray-100 text-xs text-gray-600 font-semibold border border-gray-200">38 Criteria</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="bg-white px-6 py-4 border-b border-gray-200 flex-shrink-0">
+      <div class="grid grid-cols-3 gap-4">
+        <article class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-primary">
+          <p class="text-xs font-medium text-gray-500 uppercase">Common Criteria (CC)</p>
+          <p class="text-2xl font-bold text-gray-900 mt-1">33</p>
+          <p class="text-xs text-gray-500 mt-1">9 subcategories</p>
+        </article>
+        <article class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-blue-500">
+          <p class="text-xs font-medium text-gray-500 uppercase">Availability (A)</p>
+          <p class="text-2xl font-bold text-gray-900 mt-1">3</p>
+          <p class="text-xs text-gray-500 mt-1">1 subcategory</p>
+        </article>
+        <article class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-purple-500">
+          <p class="text-xs font-medium text-gray-500 uppercase">Confidentiality (C)</p>
+          <p class="text-2xl font-bold text-gray-900 mt-1">2</p>
+          <p class="text-xs text-gray-500 mt-1">1 subcategory</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="bg-white px-6 py-3 border-b border-gray-200 flex items-center gap-3 flex-shrink-0 shadow-sm z-10">
+      <div class="min-w-[180px]">
+        <div class="flex items-center justify-between w-full border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Category</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="min-w-[160px]">
+        <div class="flex items-center justify-between w-full border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Coverage status</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <button class="text-xs text-primary font-medium cursor-pointer hover:text-primary-dark whitespace-nowrap">Expand all</button>
+      <div class="flex-1 relative ml-2">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">search</span>
+        <input class="w-full border border-gray-300 rounded-md pl-10 pr-3 py-1.5 text-sm focus:ring-1 focus:ring-[#008C95] focus:border-[#008C95] placeholder-gray-400" placeholder="Search criteria by ID or description..." type="text"/>
+      </div>
+    </section>
+
+    <section class="flex-1 p-6 overflow-auto custom-scroll bg-gray-50/50 space-y-6">
+      <article class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <header class="px-6 py-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-gray-500 group-hover:text-gray-700 transition-transform">expand_more</span>
+            <h3 class="text-base font-semibold text-gray-900">Control Environment</h3>
+            <span class="text-xs text-gray-500 font-medium">Security / Common</span>
+            <span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium">5 criteria</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-32 h-2 rounded-full bg-gray-100 overflow-hidden">
+              <div class="h-full bg-primary rounded-full" style="width: 76%"></div>
+            </div>
+            <span class="text-xs text-gray-500 font-medium">38 controls</span>
+          </div>
+        </header>
+
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between bg-primary/5 border-l-2 border-primary">
+          <div class="flex items-center gap-3 flex-1 min-w-0">
+            <span class="material-symbols-outlined text-gray-500 text-[16px]">expand_more</span>
+            <span class="text-sm font-semibold text-primary whitespace-nowrap">CC1.1</span>
+            <p class="text-sm text-gray-700 truncate">COSO Principle 1: The entity demonstrates a commitment to integrity and ethical values</p>
+          </div>
+          <div class="flex items-center gap-4 shrink-0">
+            <span class="text-xs text-gray-500 font-medium whitespace-nowrap">7 controls</span>
+            <div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden">
+              <div class="h-full bg-primary rounded-full" style="width: 71%"></div>
+            </div>
+            <span class="text-xs font-semibold whitespace-nowrap text-primary">5/7</span>
+          </div>
+        </div>
+
+        <div class="px-6 py-3 bg-gray-50/30 text-sm text-gray-600 leading-relaxed border-b border-gray-100">
+          The entity demonstrates a commitment to integrity and ethical values. Management sets the tone at the top, establishes standards of conduct, evaluates adherence, and addresses deviations in a timely manner.
+        </div>
+
+        <div class="mx-6 my-3 border border-gray-200 rounded-lg overflow-hidden">
+          <table class="min-w-full text-left border-collapse">
+            <thead class="bg-gray-50 border-b border-gray-200">
+              <tr>
+                <th class="w-[100px] py-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-gray-500">Control</th>
+                <th class="py-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-gray-500">Name</th>
+                <th class="w-[130px] py-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-gray-500">Implementation</th>
+                <th class="w-[110px] py-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-gray-500">Testing</th>
+                <th class="w-[80px] py-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-gray-500 text-center">Evidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hover:bg-gray-50 transition-colors border-b border-gray-100">
+                <td class="py-2.5 px-3"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">CTL-001</a></td>
+                <td class="py-2.5 px-3 text-sm text-gray-800">Employee Onboarding</td>
+                <td class="py-2.5 px-3"><span class="bg-amber-50 text-amber-700 border border-amber-200/60 px-2 py-0.5 rounded-full text-xs font-medium">In progress</span></td>
+                <td class="py-2.5 px-3"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2 py-0.5 rounded-full text-xs font-medium">Effective</span></td>
+                <td class="py-2.5 px-3 text-sm text-gray-500 text-center">1</td>
+              </tr>
+              <tr class="hover:bg-gray-50 transition-colors border-b border-gray-100">
+                <td class="py-2.5 px-3"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">CTL-002</a></td>
+                <td class="py-2.5 px-3 text-sm text-gray-800">Policy Publication</td>
+                <td class="py-2.5 px-3"><span class="bg-amber-50 text-amber-700 border border-amber-200/60 px-2 py-0.5 rounded-full text-xs font-medium">In progress</span></td>
+                <td class="py-2.5 px-3"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2 py-0.5 rounded-full text-xs font-medium">Effective</span></td>
+                <td class="py-2.5 px-3 text-sm text-gray-500 text-center">1</td>
+              </tr>
+              <tr class="hover:bg-gray-50 transition-colors border-b border-gray-100">
+                <td class="py-2.5 px-3"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">CTL-003</a></td>
+                <td class="py-2.5 px-3 text-sm text-gray-800">Employee Confidentiality Agreement</td>
+                <td class="py-2.5 px-3"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2 py-0.5 rounded-full text-xs font-medium">Completed</span></td>
+                <td class="py-2.5 px-3"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2 py-0.5 rounded-full text-xs font-medium">Effective</span></td>
+                <td class="py-2.5 px-3 text-sm text-gray-500 text-center">1</td>
+              </tr>
+              <tr class="hover:bg-gray-50 transition-colors border-b border-gray-100">
+                <td class="py-2.5 px-3"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">CTL-004</a></td>
+                <td class="py-2.5 px-3 text-sm text-gray-800">Code of Conduct</td>
+                <td class="py-2.5 px-3"><span class="bg-amber-50 text-amber-700 border border-amber-200/60 px-2 py-0.5 rounded-full text-xs font-medium">In progress</span></td>
+                <td class="py-2.5 px-3"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2 py-0.5 rounded-full text-xs font-medium">Effective</span></td>
+                <td class="py-2.5 px-3 text-sm text-gray-500 text-center">1</td>
+              </tr>
+              <tr class="hover:bg-gray-50 transition-colors border-b border-gray-100">
+                <td class="py-2.5 px-3"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">CTL-006</a></td>
+                <td class="py-2.5 px-3 text-sm text-gray-800">Employee Handbook</td>
+                <td class="py-2.5 px-3"><span class="bg-amber-50 text-amber-700 border border-amber-200/60 px-2 py-0.5 rounded-full text-xs font-medium">In progress</span></td>
+                <td class="py-2.5 px-3"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2 py-0.5 rounded-full text-xs font-medium">Effective</span></td>
+                <td class="py-2.5 px-3 text-sm text-gray-500 text-center">1</td>
+              </tr>
+              <tr class="hover:bg-gray-50 transition-colors border-b border-gray-100">
+                <td class="py-2.5 px-3"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">CTL-009</a></td>
+                <td class="py-2.5 px-3 text-sm text-gray-800">Board Oversight</td>
+                <td class="py-2.5 px-3"><span class="bg-amber-50 text-amber-700 border border-amber-200/60 px-2 py-0.5 rounded-full text-xs font-medium">In progress</span></td>
+                <td class="py-2.5 px-3"><span class="bg-gray-100 text-gray-600 border border-gray-200 px-2 py-0.5 rounded-full text-xs font-medium">Not tested</span></td>
+                <td class="py-2.5 px-3 text-sm text-gray-500 text-center">0</td>
+              </tr>
+              <tr class="hover:bg-gray-50 transition-colors">
+                <td class="py-2.5 px-3"><a class="text-primary hover:text-primary-dark hover:underline font-semibold text-sm" href="#">CTL-014</a></td>
+                <td class="py-2.5 px-3 text-sm text-gray-800">Performance Reviews</td>
+                <td class="py-2.5 px-3"><span class="bg-amber-50 text-amber-700 border border-amber-200/60 px-2 py-0.5 rounded-full text-xs font-medium">In progress</span></td>
+                <td class="py-2.5 px-3"><span class="bg-green-50 text-green-700 border border-green-200/60 px-2 py-0.5 rounded-full text-xs font-medium">Effective</span></td>
+                <td class="py-2.5 px-3 text-sm text-gray-500 text-center">1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="px-6 py-3 border-t border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group">
+          <div class="flex items-center gap-3 flex-1 min-w-0">
+            <span class="material-symbols-outlined text-gray-300 group-hover:text-gray-500 text-[16px]">chevron_right</span>
+            <span class="text-sm font-semibold text-primary whitespace-nowrap">CC1.2</span>
+            <p class="text-sm text-gray-700 truncate">COSO Principle 2: Board independence and oversight</p>
+          </div>
+          <div class="flex items-center gap-4 shrink-0">
+            <span class="text-xs text-gray-500 font-medium whitespace-nowrap">3 controls</span>
+            <div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div>
+            <span class="text-xs font-semibold whitespace-nowrap text-amber-700">2/3</span>
+          </div>
+        </div>
+
+        <div class="px-6 py-3 border-t border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group">
+          <div class="flex items-center gap-3 flex-1 min-w-0">
+            <span class="material-symbols-outlined text-gray-300 group-hover:text-gray-500 text-[16px]">chevron_right</span>
+            <span class="text-sm font-semibold text-primary whitespace-nowrap">CC1.3</span>
+            <p class="text-sm text-gray-700 truncate">COSO Principle 3: Management structures and reporting lines</p>
+          </div>
+          <div class="flex items-center gap-4 shrink-0">
+            <span class="text-xs text-gray-500 font-medium whitespace-nowrap">4 controls</span>
+            <div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 75%"></div></div>
+            <span class="text-xs font-semibold whitespace-nowrap text-primary">3/4</span>
+          </div>
+        </div>
+
+        <div class="px-6 py-3 border-t border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group">
+          <div class="flex items-center gap-3 flex-1 min-w-0">
+            <span class="material-symbols-outlined text-gray-300 group-hover:text-gray-500 text-[16px]">chevron_right</span>
+            <span class="text-sm font-semibold text-primary whitespace-nowrap">CC1.4</span>
+            <p class="text-sm text-gray-700 truncate">COSO Principle 4: Commitment to competent individuals</p>
+          </div>
+          <div class="flex items-center gap-4 shrink-0">
+            <span class="text-xs text-gray-500 font-medium whitespace-nowrap">5 controls</span>
+            <div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 80%"></div></div>
+            <span class="text-xs font-semibold whitespace-nowrap text-primary">4/5</span>
+          </div>
+        </div>
+
+        <div class="px-6 py-3 border-t border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group">
+          <div class="flex items-center gap-3 flex-1 min-w-0">
+            <span class="material-symbols-outlined text-gray-300 group-hover:text-gray-500 text-[16px]">chevron_right</span>
+            <span class="text-sm font-semibold text-primary whitespace-nowrap">CC1.5</span>
+            <p class="text-sm text-gray-700 truncate">COSO Principle 5: Accountability for internal control</p>
+          </div>
+          <div class="flex items-center gap-4 shrink-0">
+            <span class="text-xs text-gray-500 font-medium whitespace-nowrap">4 controls</span>
+            <div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 75%"></div></div>
+            <span class="text-xs font-semibold whitespace-nowrap text-primary">3/4</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <header class="px-6 py-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-gray-500">expand_more</span>
+            <h3 class="text-base font-semibold text-gray-900">Information and Communication</h3>
+            <span class="text-xs text-gray-500 font-medium">Security / Common</span>
+            <span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium">3 criteria</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-32 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 73%"></div></div>
+            <span class="text-xs text-gray-500 font-medium">15 controls</span>
+          </div>
+        </header>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group">
+          <div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC2.1</span><p class="text-sm text-gray-700 truncate">COSO Principle 13: Relevant quality information</p></div>
+          <div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">6 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div><span class="text-xs font-semibold text-amber-700">4/6</span></div>
+        </div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group">
+          <div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC2.2</span><p class="text-sm text-gray-700 truncate">COSO Principle 14: Internal communication</p></div>
+          <div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">5 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 80%"></div></div><span class="text-xs font-semibold text-primary">4/5</span></div>
+        </div>
+        <div class="px-6 py-3 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group">
+          <div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC2.3</span><p class="text-sm text-gray-700 truncate">COSO Principle 15: External communication</p></div>
+          <div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">4 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 75%"></div></div><span class="text-xs font-semibold text-primary">3/4</span></div>
+        </div>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <header class="px-6 py-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-gray-500">expand_more</span>
+            <h3 class="text-base font-semibold text-gray-900">Risk Assessment</h3>
+            <span class="text-xs text-gray-500 font-medium">Security / Common</span>
+            <span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium">4 criteria</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-32 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500 rounded-full" style="width: 62%"></div></div>
+            <span class="text-xs text-gray-500 font-medium">16 controls</span>
+          </div>
+        </header>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC3.1</span><p class="text-sm text-gray-700 truncate">COSO Principle 6: Specifies objectives with clarity</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">4 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 75%"></div></div><span class="text-xs font-semibold text-primary">3/4</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC3.2</span><p class="text-sm text-gray-700 truncate">COSO Principle 7: Identifies risks across entity</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">5 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 60%"></div></div><span class="text-xs font-semibold text-amber-700">3/5</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC3.3</span><p class="text-sm text-gray-700 truncate">COSO Principle 8: Considers potential for fraud</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">3 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div><span class="text-xs font-semibold text-amber-700">2/3</span></div></div>
+        <div class="px-6 py-3 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC3.4</span><p class="text-sm text-gray-700 truncate">COSO Principle 9: Identifies and assesses changes</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">4 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 50%"></div></div><span class="text-xs font-semibold text-amber-700">2/4</span></div></div>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <header class="px-6 py-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-gray-500">expand_more</span>
+            <h3 class="text-base font-semibold text-gray-900">Monitoring Activities</h3>
+            <span class="text-xs text-gray-500 font-medium">Security / Common</span>
+            <span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium">2 criteria</span>
+          </div>
+          <div class="flex items-center gap-2"><div class="w-32 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 75%"></div></div><span class="text-xs text-gray-500 font-medium">8 controls</span></div>
+        </header>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC4.1</span><p class="text-sm text-gray-700 truncate">COSO Principle 16: Ongoing and separate evaluations</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">5 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 80%"></div></div><span class="text-xs font-semibold text-primary">4/5</span></div></div>
+        <div class="px-6 py-3 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC4.2</span><p class="text-sm text-gray-700 truncate">COSO Principle 17: Evaluates and communicates deficiencies</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">3 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div><span class="text-xs font-semibold text-amber-700">2/3</span></div></div>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <header class="px-6 py-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-gray-500">expand_more</span>
+            <h3 class="text-base font-semibold text-gray-900">Control Activities</h3>
+            <span class="text-xs text-gray-500 font-medium">Security / Common</span>
+            <span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium">3 criteria</span>
+          </div>
+          <div class="flex items-center gap-2"><div class="w-32 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 63%"></div></div><span class="text-xs text-gray-500 font-medium">19 controls</span></div>
+        </header>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC5.1</span><p class="text-sm text-gray-700 truncate">COSO Principle 10: Selects and develops control activities</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">6 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div><span class="text-xs font-semibold text-amber-700">4/6</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC5.2</span><p class="text-sm text-gray-700 truncate">COSO Principle 11: General controls over technology</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">8 controls</span><div class="w-20 h-1.5 rounded-full bg-amber-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 63%"></div></div><span class="text-xs font-semibold text-amber-700">5/8</span></div></div>
+        <div class="px-6 py-3 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC5.3</span><p class="text-sm text-gray-700 truncate">COSO Principle 12: Deploys through policies and procedures</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">5 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 80%"></div></div><span class="text-xs font-semibold text-primary">4/5</span></div></div>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <header class="px-6 py-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-gray-500">expand_more</span>
+            <h3 class="text-base font-semibold text-gray-900">Logical and Physical Access</h3>
+            <span class="text-xs text-gray-500 font-medium">Security / Common</span>
+            <span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium">8 criteria</span>
+          </div>
+          <div class="flex items-center gap-2"><div class="w-32 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 73%"></div></div><span class="text-xs text-gray-500 font-medium">31 controls</span></div>
+        </header>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC6.1</span><p class="text-sm text-gray-700 truncate">Logical access security software and architectures</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">6 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div><span class="text-xs font-semibold text-amber-700">4/6</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC6.2</span><p class="text-sm text-gray-700 truncate">Registration and authorization before granting access</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">4 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 75%"></div></div><span class="text-xs font-semibold text-primary">3/4</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC6.3</span><p class="text-sm text-gray-700 truncate">Authorizes, modifies, or removes access</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">5 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 80%"></div></div><span class="text-xs font-semibold text-primary">4/5</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC6.4</span><p class="text-sm text-gray-700 truncate">Restricts physical access to facilities</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">2 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-green-500" style="width: 100%"></div></div><span class="text-xs font-semibold text-green-700">2/2</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC6.5</span><p class="text-sm text-gray-700 truncate">Discontinues protections over decommissioned assets</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">2 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 50%"></div></div><span class="text-xs font-semibold text-amber-700">1/2</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC6.6</span><p class="text-sm text-gray-700 truncate">Logical access against external threats</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">5 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 60%"></div></div><span class="text-xs font-semibold text-amber-700">3/5</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC6.7</span><p class="text-sm text-gray-700 truncate">Restricts transmission and movement of information</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">3 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div><span class="text-xs font-semibold text-amber-700">2/3</span></div></div>
+        <div class="px-6 py-3 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC6.8</span><p class="text-sm text-gray-700 truncate">Controls against unauthorized or malicious software</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">4 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 75%"></div></div><span class="text-xs font-semibold text-primary">3/4</span></div></div>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <header class="px-6 py-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-gray-500">expand_more</span>
+            <h3 class="text-base font-semibold text-gray-900">System Operations</h3>
+            <span class="text-xs text-gray-500 font-medium">Security / Common</span>
+            <span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium">5 criteria</span>
+          </div>
+          <div class="flex items-center gap-2"><div class="w-32 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 63%"></div></div><span class="text-xs text-gray-500 font-medium">19 controls</span></div>
+        </header>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC7.1</span><p class="text-sm text-gray-700 truncate">Detection and monitoring procedures</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">5 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 60%"></div></div><span class="text-xs font-semibold text-amber-700">3/5</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC7.2</span><p class="text-sm text-gray-700 truncate">Monitors for anomalies indicating compromise</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">4 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 75%"></div></div><span class="text-xs font-semibold text-primary">3/4</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC7.3</span><p class="text-sm text-gray-700 truncate">Evaluates security events</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">3 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div><span class="text-xs font-semibold text-amber-700">2/3</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC7.4</span><p class="text-sm text-gray-700 truncate">Responds to identified security incidents</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">4 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 75%"></div></div><span class="text-xs font-semibold text-primary">3/4</span></div></div>
+        <div class="px-6 py-3 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC7.5</span><p class="text-sm text-gray-700 truncate">Recovers from identified security incidents</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">3 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div><span class="text-xs font-semibold text-amber-700">2/3</span></div></div>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <header class="px-6 py-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-gray-500">expand_more</span>
+            <h3 class="text-base font-semibold text-gray-900">Change Management</h3>
+            <span class="text-xs text-gray-500 font-medium">Security / Common</span>
+            <span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium">1 criterion</span>
+          </div>
+          <div class="flex items-center gap-2"><div class="w-32 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 71%"></div></div><span class="text-xs text-gray-500 font-medium">7 controls</span></div>
+        </header>
+        <div class="px-6 py-3 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC8.1</span><p class="text-sm text-gray-700 truncate">Authorizes, designs, develops, tests, approves changes</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">7 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 71%"></div></div><span class="text-xs font-semibold text-primary">5/7</span></div></div>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <header class="px-6 py-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-gray-500">expand_more</span>
+            <h3 class="text-base font-semibold text-gray-900">Risk Mitigation</h3>
+            <span class="text-xs text-gray-500 font-medium">Security / Common</span>
+            <span class="bg-primary/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium">2 criteria</span>
+          </div>
+          <div class="flex items-center gap-2"><div class="w-32 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 71%"></div></div><span class="text-xs text-gray-500 font-medium">7 controls</span></div>
+        </header>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC9.1</span><p class="text-sm text-gray-700 truncate">Risk mitigation for business disruption</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">4 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 75%"></div></div><span class="text-xs font-semibold text-primary">3/4</span></div></div>
+        <div class="px-6 py-3 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-primary">CC9.2</span><p class="text-sm text-gray-700 truncate">Vendor and business partner risk management</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">3 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div><span class="text-xs font-semibold text-amber-700">2/3</span></div></div>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <header class="px-6 py-4 bg-gray-50 border-b border-gray-200 border-l-4 border-blue-500 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-gray-500">expand_more</span>
+            <h3 class="text-base font-semibold text-gray-900">Availability</h3>
+            <span class="text-xs text-gray-500 font-medium">Availability</span>
+            <span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full text-xs font-medium">3 criteria</span>
+          </div>
+          <div class="flex items-center gap-2"><div class="w-32 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-blue-500" style="width: 67%"></div></div><span class="text-xs text-gray-500 font-medium">9 controls</span></div>
+        </header>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-blue-700">A1.1</span><p class="text-sm text-gray-700 truncate">Maintains and monitors processing capacity</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">3 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div><span class="text-xs font-semibold text-amber-700">2/3</span></div></div>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-blue-700">A1.2</span><p class="text-sm text-gray-700 truncate">Environmental protections and recovery infrastructure</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">4 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-primary" style="width: 75%"></div></div><span class="text-xs font-semibold text-primary">3/4</span></div></div>
+        <div class="px-6 py-3 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-blue-700">A1.3</span><p class="text-sm text-gray-700 truncate">Tests recovery plan procedures</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">2 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 50%"></div></div><span class="text-xs font-semibold text-amber-700">1/2</span></div></div>
+      </article>
+
+      <article class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+        <header class="px-6 py-4 bg-gray-50 border-b border-gray-200 border-l-4 border-purple-500 flex items-center justify-between cursor-pointer group">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-gray-500">expand_more</span>
+            <h3 class="text-base font-semibold text-gray-900">Confidentiality</h3>
+            <span class="text-xs text-gray-500 font-medium">Confidentiality</span>
+            <span class="bg-purple-50 text-purple-700 px-2 py-0.5 rounded-full text-xs font-medium">2 criteria</span>
+          </div>
+          <div class="flex items-center gap-2"><div class="w-32 h-2 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 60%"></div></div><span class="text-xs text-gray-500 font-medium">5 controls</span></div>
+        </header>
+        <div class="px-6 py-3 border-b border-gray-100 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-purple-700">C1.1</span><p class="text-sm text-gray-700 truncate">Identifies and maintains confidential information</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">3 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 67%"></div></div><span class="text-xs font-semibold text-amber-700">2/3</span></div></div>
+        <div class="px-6 py-3 flex items-center justify-between hover:bg-gray-50/50 cursor-pointer group"><div class="flex items-center gap-3 flex-1 min-w-0"><span class="material-symbols-outlined text-gray-300">chevron_right</span><span class="text-sm font-semibold text-purple-700">C1.2</span><p class="text-sm text-gray-700 truncate">Disposes of confidential information</p></div><div class="flex items-center gap-4"><span class="text-xs text-gray-500 font-medium">2 controls</span><div class="w-20 h-1.5 rounded-full bg-gray-100 overflow-hidden"><div class="h-full bg-amber-500" style="width: 50%"></div></div><span class="text-xs font-semibold text-amber-700">1/2</span></div></div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Trust Hub - Control Detail</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#008a94",
+            "primary-dark": "#006c74",
+            "primary-light": "#e0f2f3",
+            "background-light": "#f5f8f8",
+            "surface-light": "#ffffff",
+            "border-light": "#dae6e7",
+            "text-main": "#101818",
+            "text-muted": "#5e8a8d",
+            "slate-custom": "#4C4C4E",
+          },
+          fontFamily: {
+            display: ["Public Sans", "sans-serif"],
+            sans: ["Public Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="flex h-screen overflow-hidden text-gray-800 font-display">
+  <aside class="w-[240px] flex-shrink-0 flex flex-col h-full bg-[#4C4C4E] text-gray-300 shadow-xl z-20">
+    <div class="px-5 py-4 flex items-center gap-3 mb-2">
+      <div class="w-8 h-8 bg-white/10 rounded flex items-center justify-center text-white">
+        <span class="material-symbols-outlined text-[20px]">shield</span>
+      </div>
+      <h1 class="text-white font-semibold text-base tracking-tight">Trust Hub</h1>
+    </div>
+    <nav class="flex-1 flex flex-col space-y-0.5 px-3">
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">dashboard</span>
+        Dashboard
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded bg-[#008C95] text-white shadow-sm" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3">verified_user</span>
+        Controls
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">fact_check</span>
+        Requests
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">grid_view</span>
+        Criteria
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">policy</span>
+        Policies
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">folder_open</span>
+        Evidence
+      </a>
+      <div class="mt-auto pt-4">
+        <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+          <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">history</span>
+          Audits
+        </a>
+      </div>
+    </nav>
+    <div class="p-4 border-t border-white/10 bg-black/20 mt-auto">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold border border-white/20">
+          OB
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-white">Owen Barron</span>
+          <span class="text-[10px] text-gray-400">Admin</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light">
+    <header class="bg-white px-6 pt-6 pb-3 border-b border-gray-200 flex-shrink-0">
+      <div class="flex items-start justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-2 text-sm text-gray-500">
+            <a class="hover:text-primary" href="#">Controls</a>
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+            <span class="text-gray-900 font-medium">CTL-001</span>
+          </div>
+          <div class="flex items-center gap-3 mt-2">
+            <h2 class="text-2xl font-bold text-gray-900 tracking-tight">CTL-001 Employee Onboarding</h2>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <span class="material-symbols-outlined text-[14px]">verified</span>
+              Fresh until Sep 11, 2026
+            </span>
+          </div>
+          <p class="text-sm text-gray-500 mt-1 max-w-2xl">Ensures all new hires complete background checks and sign an NDA prior to system access.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">Edit Control</button>
+          <button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-[#008C95] hover:bg-[#006C75] rounded-md shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">upload</span>
+            Upload Evidence
+          </button>
+        </div>
+      </div>
+      <div class="flex gap-6 border-b border-gray-200 mt-5">
+        <button class="pb-3 text-sm font-semibold text-primary border-b-[3px] border-primary">Details</button>
+        <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700 border-b-[3px] border-transparent">Criteria</button>
+        <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700 border-b-[3px] border-transparent">Evidence <span class="ml-1.5 px-1.5 py-0.5 rounded-full bg-gray-100 text-[11px] text-gray-600">4</span></button>
+        <button class="pb-3 text-sm font-medium text-gray-500 hover:text-gray-700 border-b-[3px] border-transparent">Requests</button>
+      </div>
+    </header>
+
+    <div class="flex-1 overflow-y-auto px-6 py-6">
+      <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-8 flex flex-col gap-6">
+          <div class="bg-white border border-gray-200 rounded-lg shadow-sm">
+            <div class="px-6 py-4 border-b border-gray-200 flex items-center justify-between bg-gray-50">
+              <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wide">Control Configuration</h3>
+              <button class="text-gray-400 hover:text-gray-600">
+                <span class="material-symbols-outlined text-[20px]">more_horiz</span>
+              </button>
+            </div>
+            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Control ID</p>
+                <p class="mt-1 text-sm font-semibold text-gray-900 font-mono bg-gray-100 w-fit px-2 py-0.5 rounded">CTL-001</p>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Owner</p>
+                <div class="mt-1 flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-full bg-gray-200 flex items-center justify-center text-xs font-semibold text-gray-600">JD</div>
+                  <span class="text-sm font-medium text-gray-900">Jane Doe</span>
+                </div>
+              </div>
+              <div class="md:col-span-2">
+                <p class="text-xs font-medium text-gray-500 uppercase">Control Description</p>
+                <p class="mt-1 text-sm text-gray-700 leading-relaxed">Human Resources performs background checks on all new employees prior to their start date. Employees sign a Non-Disclosure Agreement and acknowledge the Employee Handbook before system access is granted.</p>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Frameworks</p>
+                <div class="mt-2 flex flex-wrap gap-2">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded bg-gray-100 text-xs font-medium text-gray-700 border border-gray-200">SOC 2 Type II</span>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded bg-gray-100 text-xs font-medium text-gray-700 border border-gray-200">ISO 27001</span>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Frequency</p>
+                <p class="mt-1 text-sm text-gray-700">Per hiring event</p>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Created</p>
+                <p class="mt-1 text-sm text-gray-700">Jan 15, 2023</p>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Last Updated</p>
+                <p class="mt-1 text-sm text-gray-700">Sep 11, 2025</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="text-sm font-semibold text-gray-900">Linked Criteria</h4>
+                <span class="text-xs text-gray-500">2 mapped</span>
+              </div>
+              <div class="space-y-3">
+                <div class="border border-gray-200 rounded-md p-3 hover:border-primary/50 transition-colors">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">CC1.1</span>
+                    <span class="material-symbols-outlined text-gray-300 text-[16px]">open_in_new</span>
+                  </div>
+                  <p class="text-sm text-gray-700">The entity demonstrates a commitment to integrity and ethical values.</p>
+                </div>
+                <div class="border border-gray-200 rounded-md p-3 hover:border-primary/50 transition-colors">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">CC1.2</span>
+                    <span class="material-symbols-outlined text-gray-300 text-[16px]">open_in_new</span>
+                  </div>
+                  <p class="text-sm text-gray-700">The board of directors demonstrates independence from management and exercises oversight.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="text-sm font-semibold text-gray-900">Evidence Requirements</h4>
+                <button class="text-xs text-primary font-semibold">View checklist</button>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-green-600 text-[18px]">check_circle</span>
+                  <div>
+                    <p class="text-sm font-medium text-gray-900">Background check report</p>
+                    <p class="text-xs text-gray-500">Required per hire, 12 month retention</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-amber-500 text-[18px]">schedule</span>
+                  <div>
+                    <p class="text-sm font-medium text-gray-900">NDA acknowledgment log</p>
+                    <p class="text-xs text-gray-500">Needs refresh within 30 days</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="material-symbols-outlined text-gray-400 text-[18px]">radio_button_unchecked</span>
+                  <div>
+                    <p class="text-sm font-medium text-gray-900">Onboarding checklist</p>
+                    <p class="text-xs text-gray-500">Not yet uploaded for Q4 hires</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 flex flex-col gap-6">
+          <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Ownership and Status</h4>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-500 uppercase">Implementation</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">Implemented</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-500 uppercase">Testing</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200">Annual review</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-500 uppercase">Audit Scope</span>
+                <span class="text-sm font-medium text-gray-900">2026 SOC 2 Type II</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-500 uppercase">Evidence Owner</span>
+                <span class="text-sm font-medium text-gray-900">People Ops</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="text-sm font-semibold text-gray-900">Active Requests</h4>
+              <span class="text-xs text-gray-500">2 open</span>
+            </div>
+            <div class="space-y-3">
+              <div class="border border-gray-200 rounded-md p-3">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-semibold text-gray-600 bg-gray-100 px-2 py-0.5 rounded">REQ-2026-014</span>
+                  <span class="inline-flex items-center gap-1 text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Follow-up</span>
+                </div>
+                <p class="text-sm text-gray-700">Provide Q1 hiring checklist exports.</p>
+                <div class="flex items-center justify-between text-xs text-gray-500 mt-2">
+                  <span>Due Mar 10, 2026</span>
+                  <span>Assignee: HRIS</span>
+                </div>
+              </div>
+              <div class="border border-gray-200 rounded-md p-3">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-semibold text-gray-600 bg-gray-100 px-2 py-0.5 rounded">REQ-2026-021</span>
+                  <span class="inline-flex items-center gap-1 text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">Submitted</span>
+                </div>
+                <p class="text-sm text-gray-700">Upload NDA acknowledgment export for new hires.</p>
+                <div class="flex items-center justify-between text-xs text-gray-500 mt-2">
+                  <span>Submitted Feb 24, 2026</span>
+                  <span>Assignee: People Ops</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
+            <h4 class="text-sm font-semibold text-gray-900 mb-3">Related Evidence</h4>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between text-sm">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-gray-400 text-[18px]">description</span>
+                  <span class="text-gray-700">Q4_2025_hires.csv</span>
+                </div>
+                <span class="text-xs text-gray-500">Nov 20, 2025</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-gray-400 text-[18px]">description</span>
+                  <span class="text-gray-700">nda_ack_log.pdf</span>
+                </div>
+                <span class="text-xs text-gray-500">Jan 12, 2026</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-gray-400 text-[18px]">description</span>
+                  <span class="text-gray-700">background_checks_summary.xlsx</span>
+                </div>
+                <span class="text-xs text-gray-500">Feb 03, 2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

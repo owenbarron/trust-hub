@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Trust Hub - Controls Library</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#008a94",
+            "primary-dark": "#006c74",
+            "primary-light": "#e0f2f3",
+            "background-light": "#f5f8f8",
+            "surface-light": "#ffffff",
+            "border-light": "#dae6e7",
+            "text-main": "#101818",
+            "text-muted": "#5e8a8d",
+            "slate-custom": "#4C4C4E",
+          },
+          fontFamily: {
+            display: ["Public Sans", "sans-serif"],
+            sans: ["Public Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="flex h-screen overflow-hidden text-gray-800 font-display">
+  <aside class="w-[240px] flex-shrink-0 flex flex-col h-full bg-[#4C4C4E] text-gray-300 shadow-xl z-20">
+    <div class="px-5 py-4 flex items-center gap-3 mb-2">
+      <div class="w-8 h-8 bg-white/10 rounded flex items-center justify-center text-white">
+        <span class="material-symbols-outlined text-[20px]">shield</span>
+      </div>
+      <h1 class="text-white font-semibold text-base tracking-tight">Trust Hub</h1>
+    </div>
+    <nav class="flex-1 flex flex-col space-y-0.5 px-3">
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">dashboard</span>
+        Dashboard
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded bg-[#008C95] text-white shadow-sm" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3">verified_user</span>
+        Controls
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">fact_check</span>
+        Requests
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">grid_view</span>
+        Criteria
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">policy</span>
+        Policies
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">folder_open</span>
+        Evidence
+      </a>
+      <div class="mt-auto pt-4">
+        <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+          <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">history</span>
+          Audits
+        </a>
+      </div>
+    </nav>
+    <div class="p-4 border-t border-white/10 bg-black/20 mt-auto">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold border border-white/20">OB</div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-white">Owen Barron</span>
+          <span class="text-[10px] text-gray-400">Admin</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light">
+    <header class="bg-white px-6 pt-6 pb-3 border-b border-gray-200 flex-shrink-0">
+      <div class="flex items-start justify-between gap-6">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Controls Library</h2>
+          <p class="text-sm text-gray-500 mt-1">Harmonized control catalog across SOC 2 and ISO 27001. Status reflects the active audit.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wide">2026 SOC 2 TYPE II &mdash; ACTIVE</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-gray-100 text-xs text-gray-600 font-semibold border border-gray-200">88 controls</span>
+        </div>
+      </div>
+      <div class="flex items-center justify-between mt-5">
+        <div class="flex items-center gap-3">
+          <button class="flex items-center gap-1.5 bg-[#008C95] hover:bg-[#006C75] text-white text-sm font-medium px-4 py-2 rounded shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">add</span>
+            New Control
+          </button>
+          <button class="flex items-center gap-1.5 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 text-sm font-medium px-4 py-2 rounded shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">upload</span>
+            Import
+          </button>
+          <button class="flex items-center gap-1.5 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 text-sm font-medium px-4 py-2 rounded shadow-sm">
+            <span class="material-symbols-outlined text-[18px]">download</span>
+            Export
+          </button>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-gray-500">
+          <span class="inline-flex items-center gap-1 px-2 py-1 rounded bg-gray-100 border border-gray-200">
+            <span class="material-symbols-outlined text-[14px]">sync</span>
+            Last sync: Feb 25, 2026
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <div class="bg-white px-6 py-3 border-b border-gray-200 flex items-center gap-3 flex-shrink-0 shadow-sm z-10">
+      <div class="min-w-[180px]">
+        <div class="flex items-center justify-between border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Implementation status</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="min-w-[160px]">
+        <div class="flex items-center justify-between border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Testing status</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="min-w-[160px]">
+        <div class="flex items-center justify-between border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Owner</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="flex-1 relative ml-2">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">search</span>
+        <input class="w-full border border-gray-300 rounded-md pl-10 pr-3 py-1.5 text-sm focus:ring-1 focus:ring-[#008C95] focus:border-[#008C95]" placeholder="Search controls by ID or description..." type="text"/>
+      </div>
+    </div>
+
+    <div class="flex-1 p-6 overflow-hidden bg-gray-50/50">
+      <div class="h-full bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col shadow-sm">
+        <div class="overflow-auto flex-1">
+          <table class="min-w-full text-left border-collapse">
+            <thead class="bg-gray-50 sticky top-0 z-10 border-b border-gray-200">
+              <tr>
+                <th class="w-[120px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Control ID</th>
+                <th class="w-[32%] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Control</th>
+                <th class="w-[140px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Implementation</th>
+                <th class="w-[140px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Testing</th>
+                <th class="w-[120px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Owner</th>
+                <th class="w-[140px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Evidence</th>
+                <th class="w-[130px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Freshness</th>
+                <th class="w-[90px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500 text-center">Requests</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-4 py-4 text-sm font-semibold text-primary">CTL-001</td>
+                <td class="px-4 py-4">
+                  <p class="text-sm font-semibold text-gray-900">Employee Onboarding</p>
+                  <p class="text-xs text-gray-500 mt-1">Background checks and NDA acknowledgments completed before system access.</p>
+                </td>
+                <td class="px-4 py-4 text-sm"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">Implemented</span></td>
+                <td class="px-4 py-4 text-sm"><span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200">Annual review</span></td>
+                <td class="px-4 py-4 text-sm text-gray-700">People Ops</td>
+                <td class="px-4 py-4 text-sm text-gray-700">4 files</td>
+                <td class="px-4 py-4 text-sm text-green-700">Fresh until Sep 11, 2026</td>
+                <td class="px-4 py-4 text-sm text-center font-medium text-gray-900">2</td>
+              </tr>
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-4 py-4 text-sm font-semibold text-primary">CTL-011</td>
+                <td class="px-4 py-4">
+                  <p class="text-sm font-semibold text-gray-900">Access Review</p>
+                  <p class="text-xs text-gray-500 mt-1">Quarterly review of user access for critical systems and admin roles.</p>
+                </td>
+                <td class="px-4 py-4 text-sm"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">Implemented</span></td>
+                <td class="px-4 py-4 text-sm"><span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold border border-blue-200">Quarterly</span></td>
+                <td class="px-4 py-4 text-sm text-gray-700">IT Security</td>
+                <td class="px-4 py-4 text-sm text-gray-700">7 files</td>
+                <td class="px-4 py-4 text-sm text-amber-700">Due Mar 30, 2026</td>
+                <td class="px-4 py-4 text-sm text-center font-medium text-gray-900">1</td>
+              </tr>
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-4 py-4 text-sm font-semibold text-primary">CTL-019</td>
+                <td class="px-4 py-4">
+                  <p class="text-sm font-semibold text-gray-900">Background Check Validation</p>
+                  <p class="text-xs text-gray-500 mt-1">Vetting and approval workflow for new hires and contractors.</p>
+                </td>
+                <td class="px-4 py-4 text-sm"><span class="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200">In progress</span></td>
+                <td class="px-4 py-4 text-sm"><span class="px-2 py-0.5 rounded-full bg-gray-100 text-gray-600 text-xs font-semibold border border-gray-200">Not scheduled</span></td>
+                <td class="px-4 py-4 text-sm text-gray-700">People Ops</td>
+                <td class="px-4 py-4 text-sm text-gray-700">2 files</td>
+                <td class="px-4 py-4 text-sm text-red-700">Expired Feb 01, 2026</td>
+                <td class="px-4 py-4 text-sm text-center font-medium text-gray-900">4</td>
+              </tr>
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-4 py-4 text-sm font-semibold text-primary">CTL-033</td>
+                <td class="px-4 py-4">
+                  <p class="text-sm font-semibold text-gray-900">Incident Response Plan</p>
+                  <p class="text-xs text-gray-500 mt-1">Annual review and tabletop exercises for incident response workflows.</p>
+                </td>
+                <td class="px-4 py-4 text-sm"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">Implemented</span></td>
+                <td class="px-4 py-4 text-sm"><span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold border border-blue-200">Annual</span></td>
+                <td class="px-4 py-4 text-sm text-gray-700">Security</td>
+                <td class="px-4 py-4 text-sm text-gray-700">5 files</td>
+                <td class="px-4 py-4 text-sm text-green-700">Fresh until Dec 12, 2026</td>
+                <td class="px-4 py-4 text-sm text-center font-medium text-gray-900">0</td>
+              </tr>
+              <tr class="group transition-colors hover:bg-[#F1F5F9]">
+                <td class="px-4 py-4 text-sm font-semibold text-primary">CTL-048</td>
+                <td class="px-4 py-4">
+                  <p class="text-sm font-semibold text-gray-900">Logging and Monitoring</p>
+                  <p class="text-xs text-gray-500 mt-1">Centralized logging with alerting on critical events and access anomalies.</p>
+                </td>
+                <td class="px-4 py-4 text-sm"><span class="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">Implemented</span></td>
+                <td class="px-4 py-4 text-sm"><span class="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold border border-blue-200">Monthly</span></td>
+                <td class="px-4 py-4 text-sm text-gray-700">Infrastructure</td>
+                <td class="px-4 py-4 text-sm text-gray-700">9 files</td>
+                <td class="px-4 py-4 text-sm text-amber-700">Due Apr 12, 2026</td>
+                <td class="px-4 py-4 text-sm text-center font-medium text-gray-900">3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
