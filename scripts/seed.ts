@@ -1356,11 +1356,14 @@ function seedHyperproofEvidence(
           p.filename
         );
 
-        if (!fs.existsSync(proofFilePath)) {
-          skipped++;
-          continue;
-        }
+        // Use real file size from disk if available; fall back to metadata size
+        const fileOnDisk = fs.existsSync(proofFilePath);
+        if (!fileOnDisk) skipped++;
+        const actualSize = fileOnDisk
+          ? fs.statSync(proofFilePath).size
+          : p.size;
 
+        // Store relative path regardless — file may not be present on Vercel
         const relPath = path.relative(ROOT, proofFilePath);
         const uploader = userMap.get(p.ownedBy) || "Unknown";
 
@@ -1368,7 +1371,7 @@ function seedHyperproofEvidence(
           p.filename,
           relPath,
           fileType(p.filename),
-          p.size,
+          actualSize,
           uploader,
           p.uploadedOn
         );
