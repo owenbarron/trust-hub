@@ -44,7 +44,7 @@ export function AppShell({
   return (
     <div className="min-h-screen bg-background-light text-text-main">
       <div className="flex min-h-screen">
-        <aside className="hidden w-64 shrink-0 bg-[#4C4C4E] text-white lg:flex lg:flex-col">
+        <aside className="hidden w-64 shrink-0 bg-[#18181b] text-white lg:flex lg:flex-col">
           <div className="border-b border-white/10 px-5 py-5">
             <div className="mb-2 flex items-center gap-2 text-lg font-semibold">
               <img
@@ -91,7 +91,7 @@ export function AppShell({
           <header className="sticky top-0 z-20 border-b border-gray-200 bg-white/95 px-4 py-3 backdrop-blur lg:px-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                <p className="text-xs font-medium text-gray-400">
                   Selected Audit
                 </p>
                 <p className="text-sm font-semibold text-gray-900">{selectedAudit.name}</p>

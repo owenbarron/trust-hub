@@ -18,11 +18,11 @@ const config: Config = {
         "border-light": "#dae6e7",
         "text-main": "#101818",
         "text-muted": "#5e8a8d",
-        "slate-custom": "#4C4C4E",
+        "slate-custom": "#18181b",
       },
       fontFamily: {
-        display: ["Public Sans", "sans-serif"],
-        sans: ["Public Sans", "sans-serif"],
+        display: ["var(--font-inter)", "sans-serif"],
+        sans: ["var(--font-inter)", "sans-serif"],
       },
       borderRadius: {
         DEFAULT: "0.25rem",

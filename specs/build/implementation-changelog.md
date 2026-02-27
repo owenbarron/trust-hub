@@ -73,6 +73,15 @@ Implemented the v1 build plan in `specs/build` as a Next.js 14 App Router applic
 - 2026-02-27 UTC: Fixed "Follow Up" request detail pages returning 404. Root cause: Next.js App Router passes `params.id` as raw URL-encoded string (`Follow%20Up%20-%2001`); added `decodeURIComponent()` in page component and all three API route handlers (`GET`/`PATCH`/`DELETE`).
 - 2026-02-27 UTC: Set up Vercel deployment (`vercel-build` script, `outputFileTracingIncludes` for DB bundling, Vercel-aware `lib/db.ts` copy-to-/tmp on cold start). App live at https://trust-hub-ten.vercel.app.
 
+## Change Entries (session 2026-02-27 #3 — UI polish)
+- 2026-02-27 UTC: Switched font from Public Sans to Inter via `next/font/google`; updated Tailwind `fontFamily` to use `--font-inter` CSS variable.
+- 2026-02-27 UTC: Darkened sidebar background from `#4C4C4E` to `#18181b` (`slate-custom` token) in both `AppShell.tsx` and `tailwind.config.ts`.
+- 2026-02-27 UTC: Refactored `lib/status.ts` status badge classes to Tailwind ring-inset pattern (`ring-1 ring-inset ring-{color}/20`) with `inline-flex items-center gap-1.5`; changed open/informational from `cyan` to `sky`; updated fallback class to match.
+- 2026-02-27 UTC: Updated `StatusBadge` component to render a small colored dot (`h-1.5 w-1.5 rounded-full bg-current opacity-70`) inside each badge.
+- 2026-02-27 UTC: Dashboard metrics grid changed to 5-column (`xl:grid-cols-5`), tighter spacing, smaller label text (`text-[11px] tracking-widest`), conditional amber coloring for open requests and red tinting for freshness issues.
+- 2026-02-27 UTC: Tightened "Attention Needed" table header styles (smaller text, `py-2.5`, `bg-gray-50/60`); updated row padding and cell text colors.
+- 2026-02-27 UTC: Removed `bg-gray-50` header background from "Attention Needed" section title area for cleaner look.
+
 ## Handoff — 2026-02-27 (end of day)
 
 ### What Was Done
@@ -80,10 +89,11 @@ Implemented the v1 build plan in `specs/build` as a Next.js 14 App Router applic
 - **Real seed data**: `scripts/seed.ts` now ingests the export JSON files and seeds real comments (58), proof as evidence (115 records), and control links (89). `{{user:UUID}}` mentions resolved to `@Name`.
 - **Vercel deployment**: App deploys to https://trust-hub-ten.vercel.app with seed-on-build. DB bundled via `outputFileTracingIncludes`, copied to `/tmp` at runtime.
 - **Bug fix**: "Follow Up" requests now open correctly (`decodeURIComponent` on route params).
+- **UI polish (session 3)**: Switched font to Inter, darkened sidebar to `#18181b`, refactored status badges to ring-inset style with colored dot indicators, tightened dashboard metrics grid to 5-column with conditional red/amber coloring.
 
 ### What Is Next
 - No outstanding blockers. Potential next priorities:
-  - UI polish / mockup gaps if any pages need work
+  - Further UI polish on Controls, Requests, Evidence, Policies detail pages
   - Evidence file download support on Vercel (would require object storage like S3 or committing small files)
   - Any additional data cleanup or new features for the demo
 
