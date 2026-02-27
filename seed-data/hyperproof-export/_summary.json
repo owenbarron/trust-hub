@@ -1,0 +1,488 @@
+[
+  {
+    "id": "31637353-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ003",
+    "key": "R-1",
+    "summary": "Please provide a population of vulnerability identified during the observation period, 10/01/25 - 12/31/2025.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 2
+  },
+  {
+    "id": "31637354-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ023",
+    "key": "R-2",
+    "summary": "Please provide a screenshot of the incident tracking tool and example of 1 incident tracked",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "31637355-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ015",
+    "key": "R-3",
+    "summary": "Please provide the results of the company's most recently completed business continuity and/or disaster recovery exercise (e.g. failover testing, backup restores, tabletop exercises, etc.).",
+    "status": "submittedToAuditor",
+    "commentCount": 3,
+    "proofCount": 2
+  },
+  {
+    "id": "31637357-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ006",
+    "key": "R-5",
+    "summary": "Please provide a system-generated list of active (paying) customers including when they signed up for services. \n\nNote: Please provide a screenshot or a query to evidence how the customers were generated.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "31637358-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ022",
+    "key": "R-6",
+    "summary": "Please provide a screenshot of the customer support channel or support ticket submission availability within the USEFUL application.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "3163735e-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ011",
+    "key": "R-12",
+    "summary": "Please provide evidence of the most recent business impact analysis",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "3163735f-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ007",
+    "key": "R-13",
+    "summary": "Please provide a population of customer-reported items (e.g. questions, issues, requests, incidents, etc.) since the beginning of the audit period (10/01/25 - 12/31/2025). Please also provide a screenshot/ query of how the population was generated. \n\nNote: This request is focusing on actionable items taken from customer requests so that we can sample from this population and verify each was tracked through the ticketing system and communicated back to the customer once their reported item has been resolved.",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 2
+  },
+  {
+    "id": "31637368-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ005",
+    "key": "R-22",
+    "summary": "Please provide a population of new clients onboarded during the observation period (10/01/25 - 12/31/2025)\n\nNote: Please provide a screenshot or a query to evidence how the customers were generated.",
+    "status": "submittedToAuditor",
+    "commentCount": 4,
+    "proofCount": 2
+  },
+  {
+    "id": "31637369-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ032",
+    "key": "R-23",
+    "summary": "Please provide screenshots of password configurations that include minimum length, complexity, history, expiration, and MFA requirements for the following systems:\n\n1. USEFUL Application\n2. Admin Panel\n3. Google Cloud Platform\n4. Google Workspace\n5. Firebase Authentication\n6. GitHub\n7. JIRA (supporting system)\n9. Stripe (Vendor-hosted) \n\n\nNote: If systems are integrated via SSO, please show the configuration validating such.",
+    "status": "submittedToAuditor",
+    "commentCount": 5,
+    "proofCount": 5
+  },
+  {
+    "id": "3163736f-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ017",
+    "key": "R-29",
+    "summary": "Please provide evidence that production data and backup data is encrypted at rest, including storage buckets, databases, and any other storage mechanisms used for customer data.",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 1
+  },
+  {
+    "id": "31637370-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ014",
+    "key": "R-30",
+    "summary": "Please provide the most recent external penetration test performed on the production environment. \n\nPlease also provide evidence to show remediation of identified vulnerabilities (e.g., high, medium-risk vulnerabilities), such as change management tickets, etc.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 2
+  },
+  {
+    "id": "31637373-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ028",
+    "key": "R-33",
+    "summary": "Please provide evidence that the information security policies were communicated to all employees",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 4
+  },
+  {
+    "id": "31637356-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ016",
+    "key": "R-4",
+    "summary": "Please provide an asset inventory inclusive of assets used in the system (e.g. laptops, servers, databases, storage systems, etc.) that includes:\n\nBusiness descriptions\nAsset ownership\nVersions\nPlease also include other configuration levels, as appropriate, to help ensure assets are classified appropriately, patched, and tracked as part of configuration management.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "31637366-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ030",
+    "key": "R-20",
+    "summary": "Please provide screenshots from security and operation monitoring tools including, but not limited to:\n\nGoogle Cloud Platform Tools (Google Cloud Operation Suite, etc.) \n\n1. Screenshot of what metrics are monitored (for each tool) \n2. Screenshot of alerting configurations and thresholds set (i.e. memory > 90%, alert to \"XYZ group\" \n3. Example Alert(s) - Please ensure the examples provided are from within the audit period and tie 1:1 with the alerting config (i.e. if alerting config is to \"XYZ slack group\" the screenshot of the alert should be from the \"XYZ slack group\").",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "31637359-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ024",
+    "key": "R-7",
+    "summary": "Please provide evidence demonstrating GCP is configure with different environment for dev, staging and prod.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "3163735a-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ027",
+    "key": "R-8",
+    "summary": "Please provide evidence that test data is used in non-production environments (i.e. screenshot of test data in a non-production environment or script used to anonymize data).",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 1
+  },
+  {
+    "id": "3163735d-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ009",
+    "key": "R-11",
+    "summary": "Please provide evidence of the weekly meeting held by the security and compliance committee for the following weeks. This could be meeting minutes, notes, slide show, etc. \n\n1. Week of 10/20\n2. Week of 12/01",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 2
+  },
+  {
+    "id": "31637361-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ021",
+    "key": "R-15",
+    "summary": "Please provide a copy of the most recently updated organizational chart.",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 1
+  },
+  {
+    "id": "31637365-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ012",
+    "key": "R-19",
+    "summary": "Please provide evidence of the most recent information technology risk assessment, the results, and any action items noted or actioned upon.\n\nNote: Please ensure BARR is able to identify when the risk assessment was last reviewed and approved.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 3
+  },
+  {
+    "id": "3163736a-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ025",
+    "key": "R-24",
+    "summary": "Please provide evidence for your vulnerability scanning process. This might include:\n\nScreenshots of configurations for periodic vulnerability scans (e.g. frequency, targets, scope, etc.);\nScreenshots from continuous scanning tools (e.g. AWS Inspector showing the scope of scans).\nOR\n\nIf manual scans are initiated, provide evidence to support this process. This might include:\n\nVulnerability scan reports for the most recent scans;\nTickets created to initiate the vulnerability scan.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "3163736c-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ026",
+    "key": "R-26",
+    "summary": "Please provide evidence of your baseline configuration hardening process (GCP configurations). This may include:\n\nServer deployment checklists outlining manual hardening steps;\nAutomated scripts (e.g. Terraform, Ansible, etc.) to deploy servers with baseline configurations automatically;\nInfrastructure as code scripts to provision servers with baseline configurations;\nInternal technical guides with specific hardening steps.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "31639a87-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ018",
+    "key": "R-37",
+    "summary": "Can you provide screenshots of any internal guides in Wikis (e.g. Notion, Confluence, Github, Google Drive, etc.) that address:\n\nHardening guides;\nConfiguration, installation, and operation of the information system;\nScreenshot showing who has access to the above-mentioned guide(s). \nInternal Support Channels & Example of 1 report internal incident",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 1
+  },
+  {
+    "id": "31637375-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ020",
+    "key": "R-35",
+    "summary": "Please provide a copy of the cyber liability insurance policy. Ensure that the insurance policy provided covers the entirety of the operating period (e.g. if there was a lapse, provide the older copy and the current).",
+    "status": "submittedToAuditor",
+    "commentCount": 2,
+    "proofCount": 2
+  },
+  {
+    "id": "31637367-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ002",
+    "key": "R-21",
+    "summary": "Please provide the list or inventory of vendors (includes the classification and risk level of the vendors)\n\nPlease provide a screenshot or a query to evidence how each list was generated.",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 1
+  },
+  {
+    "id": "3163735b-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ004",
+    "key": "R-9",
+    "summary": "Please provide a population of issues that escalated to the level of an incident for security and operational incidents since the beginning of the audit period (10/01/25 - 12/31/2025) and a screenshot/ query of how the population was generated. Please include relevant details including the date the incident was initiated and remediated. \n\nNote: Often times there are no true incidents in the course of a given operating period. In this event, we would be looking to see an empty return showing where incidents would otherwise be tracked (e.g. ticketing system with tag, \"incident\").",
+    "status": "submittedToAuditor",
+    "commentCount": 3,
+    "proofCount": 4
+  },
+  {
+    "id": "3163735c-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ035",
+    "key": "R-10",
+    "summary": "Please provide system-generated user lists that include all accounts (including administrators and system accounts) and assigned roles/privileges for the following key systems:\n\n1. USEFULL Application\n2. Admin Panel\n3. Google Cloud Platform (Please skip, already uploaded in Hyperproof)\n4. Google Workspace (Please skip, already uploaded in Hyperproof)\n5. Firebase Authentication\n6. GitHub (Please skip, already uploaded in Hyperproof)\n7. JIRA (supporting system)\n9. Stripe (Vendor-hosted) \n\nPlease provide a screenshot or a query to evidence how each list was generated.",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 11
+  },
+  {
+    "id": "ac7aa509-d78b-11f0-9685-ba062e4f98f5",
+    "reference": "REQ038",
+    "key": "R-38",
+    "summary": "Please upload the draft system description.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "a2671f6a-da19-11f0-b0f4-2eb89655923b",
+    "reference": "REQ046",
+    "key": "R-45",
+    "summary": "Sample Selection* \nFor the sample selections below, please provide the following:\n - Evidence QA and/or UAT was performed and documented before implementation (Control CTL-076)\n- Evidence Source code Scanning was performed for the work item (CTL-021)\n\nWork Items Samples:\n1. CCC-2700 (from release 3.35.1 - App)\n2. CCC-2678 (from release 3.40)\n3. CCC-2718 (from release 3.40)\n4. CCC-2676 (from release 3.36 - App)",
+    "status": "submittedToAuditor",
+    "commentCount": 3,
+    "proofCount": 6
+  },
+  {
+    "id": "bda5c34a-da19-11f0-b0f4-2eb89655923b",
+    "reference": "REQ043",
+    "key": "R-46",
+    "summary": "Sample Selection* \nFor the sample selections below, please provide the following:\n- Evidence the release/system change was communicated to its users and customers through an established channel and procedure (control CTL-033)\n- Evidence that the release/system change was approved by management before the deployment to production (control CTL-072)\n\n1. Release Version 3.40\n2. Release Version 3.36 - App",
+    "status": "submittedToAuditor",
+    "commentCount": 2,
+    "proofCount": 1
+  },
+  {
+    "id": "939e03f5-da15-11f0-a635-ca7b8a1c3e18",
+    "reference": "REQ045",
+    "key": "R-44",
+    "summary": "Please provide evidence of the Q4 access reviews that include a review of access for the following systems:\nAdmin Panel\nGoogle Cloud Platform\nGoogle Workspace\nFirebase Authentication\nStripe (Vendor-hosted)",
+    "status": "submittedToAuditor",
+    "commentCount": 4,
+    "proofCount": 5
+  },
+  {
+    "id": "865c0027-da15-11f0-b0f4-2eb89655923b",
+    "reference": "REQ044",
+    "key": "R-43",
+    "summary": "Sample Selection* \nPlease provide evidence (ticket, email, etc.) that the below-sampled customer requests/issue was resolved and communicated (e.g., email, customer ticketing portal, etc.) to the customer once their request was resolved. \n\n1. Ticket ID 37161775363",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "50f46f0f-da15-11f0-a666-46e0234550d6",
+    "reference": "REQ039",
+    "key": "R-39",
+    "summary": "Sample Selection*\nPlease provide Evidence of a completed performance review during the period.\n1. Bella Strollo\n2. Julia Kime\n\nNote - for evidence, we just need to see that the review was completed, the date completed, and by whom.",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 3
+  },
+  {
+    "id": "5e7723cd-da15-11f0-a666-46e0234550d6",
+    "reference": "REQ040",
+    "key": "R-40",
+    "summary": "Sample Selection*\nPlease provide ticket CCC 2751 (GCP Vulnerability Warning) to evidence that the vulnerability was tracked and remedied.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "6a5db5cb-da15-11f0-b0f4-2eb89655923b",
+    "reference": "REQ041",
+    "key": "R-41",
+    "summary": "Please provide a population of customer data deletion requests (screenshots from the Slack channel that receives requests is sufficient) for the audit period (10/01 - current)",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 2
+  },
+  {
+    "id": "770fd5a9-da15-11f0-a635-ca7b8a1c3e18",
+    "reference": "REQ042",
+    "key": "R-42",
+    "summary": "Sample Selection*\nPlease provide executed MSAs that include SLAs (if any) and terms of use for the following customers.\n1. Union College\n2. Case Western",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 2
+  },
+  {
+    "id": "88dc6161-fc9b-11f0-b647-c68ed6946322",
+    "reference": "Follow Up - 03",
+    "key": "R-49",
+    "summary": "We are missing evidence of the Employee Support Channel that employees can use to report incidents, concerns, and complaints.\n\nPlease provide a screenshot showing the support channel or the available methods employees can use to contact support (e.g., HR email inbox, ticketing system, Slack/Teams channel, hotline, or internal reporting portal).",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 2
+  },
+  {
+    "id": "9af9d4f6-fc9b-11f0-9576-ce955952d0d8",
+    "reference": "Follow Up - 04",
+    "key": "R-50",
+    "summary": "For the termination sample Ruhi Jain, do you have any additional offboarding evidence available, such as an offboarding checklist, ticket, or documentation showing the offboarding process and the date it was completed?\n\nAdditionally, if available, please provide system evidence from Google Workspace showing when the user account was deactivated/suspended.\n\nThe screenshot provided under REQ001 is limited/cut off, and additional evidence will help us confirm that all access was removed timely in accordance with policy requirements.",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 2
+  },
+  {
+    "id": "aaf44140-fc9b-11f0-a0d6-5242f5629e10",
+    "reference": "Follow Up - 05",
+    "key": "R-51",
+    "summary": "I was not able to locate evidence in the provided proofs for CTL-085: “Usefull maintains a capacity planning model to assess infrastructure usage and demands.”\n\nPlease provide evidence of the following:\n\n1. The capacity planning model (e.g., spreadsheet, forecast model, or documented process)\n2. Evidence of monitoring infrastructure usage (e.g., dashboards, monitoring reports, alerts, or metrics from your monitoring tool)",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 1
+  },
+  {
+    "id": "d340b988-fc9b-11f0-9576-ce955952d0d8",
+    "reference": "Follow Up - 07",
+    "key": "R-53",
+    "summary": "We would like to expand testing for CTL-071, as the policy-only testing does not fully cover implementation requirements. I have selected two employees to verify that their computers are in compliance with the Asset Management Policy.\n\nFor the two samples below, please provide evidence that their computers are required to have (or have enabled):\n\n- Hard drive encryption\n- User authentication requirements (e.g., password/lock settings)\n- Security patching (e.g., OS update status / patch compliance)\n\nSamples:\n1. Owen Barron\n2. Bella Strollo",
+    "status": "needsRevision",
+    "commentCount": 2,
+    "proofCount": 0
+  },
+  {
+    "id": "6fab19a4-fc9b-11f0-9576-ce955952d0d8",
+    "reference": "Follow Up - 02",
+    "key": "R-48",
+    "summary": "We did not receive MFA configuration evidence for GCP as part of the initial request (REQ032). For the control below, we will need documentation or screenshots from GCP showing that MFA is required for user access (e.g., Identity/SSO settings, MFA enforcement policies, or equivalent configuration evidence).\n\nAdditionally, please confirm whether MFA is required to access the USEFUL Application and/or the Admin Panel. If MFA is required, we will also need evidence demonstrating MFA enforcement for those systems, as they contain client information.\n\nControl CTL-064: “All systems containing client data are secured with Multi-factor Authentication (MFA).”",
+    "status": "submittedToAuditor",
+    "commentCount": 2,
+    "proofCount": 3
+  },
+  {
+    "id": "5de6c398-fc9b-11f0-b647-c68ed6946322",
+    "reference": "Follow Up - 01",
+    "key": "R-47",
+    "summary": "We did not receive the list of GitHub Users/Admins as part of the initial request (REQ035). For the control below, we will need a list of GitHub users who have the ability to modify the application source code (i.e., users with write/maintain/admin permissions to the applicable repositories).\n\n- Control CTL-064: “The ability to modify application source code is restricted to application developers and other authorized users.”\n\nPlease provide the requested list at your earliest convenience.",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 4
+  },
+  {
+    "id": "31637360-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ037",
+    "key": "R-14",
+    "summary": "Screenshot(s) of the version control platform (GitHUb showing:\n\n1. Repository overview (Please skip, already uploaded in Hyperproof)\n\n2. Version control settings/Pipeline configurations",
+    "status": "submittedToAuditor",
+    "commentCount": 3,
+    "proofCount": 3
+  },
+  {
+    "id": "31637362-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ029",
+    "key": "R-16",
+    "summary": "Please provide:\n1. Screenshot(s) of where these policies and procedures are stored;\n2. Who at the company can view them;\n3. The most recent approval for each policy (if not captured in the policy itself).",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "31637363-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ019",
+    "key": "R-17",
+    "summary": "Please provide a Board of Director Charter or Roles and Responsibilities policies that outline the requirement of the Board of Directors.\n\nPlease provide a list of active board of director members.",
+    "status": "submittedToAuditor",
+    "commentCount": 2,
+    "proofCount": 2
+  },
+  {
+    "id": "31637364-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ001",
+    "key": "R-18",
+    "summary": "Please provide the following system-generated lists from your Human Resources Information System (HRIS):\n\n1. All current employees and contractors (including job titles)\n2. All new hires onboarded since the beginning of the operating period, 10/01/25 - 12/31/2025  (including hire date and job title)\n3. All terminations since the beginning of the operating period, 10/01/25 - 12/31/2025 (including termination date and job title)\n4. All job transfers since the beginning of the operating period, 10/01/25 - 12/31/2025 (including change date and title)\n\nPlease provide a screenshot or a query to evidence how each list was generated.",
+    "status": "submittedToAuditor",
+    "commentCount": 2,
+    "proofCount": 3
+  },
+  {
+    "id": "3163736b-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ010",
+    "key": "R-25",
+    "summary": "Please provide evidence of the company's most recently completed vendor risk assessment. BARR noted the one uploaded in Hyperproof was performed before 10/01.\n\nIn addition, for the vendors supporting the scope of the system, please provide evidence of the annual oversight performed, including the results of the review (e.g. SOC 2, ISO, HITRUST, etc.). \n\nNote: If unable to identify in the vendor risk assessment provided, please identify in the comments below which vendors have access to customer data.",
+    "status": "submittedToAuditor",
+    "commentCount": 2,
+    "proofCount": 2
+  },
+  {
+    "id": "3163736d-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ033",
+    "key": "R-27",
+    "summary": "Please provide system screenshots and configurations of applications logging systems including:\n\n1. Configuration settings from the logging solution (e.g., SIEM, CloudWatch, Log Analytics Workspace, Splunk) that show:\n\n2. Logs are being pushed centrally\n\n3. Log sources are connected\n\n4. Retention configurations\n\n5. Alerts enabled (if applicable\n\n6. User list of who has access to logs.",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 1
+  },
+  {
+    "id": "3163736e-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ013",
+    "key": "R-28",
+    "summary": "Please provide the most recent annual backup restoration test and related documentation.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 2
+  },
+  {
+    "id": "31637371-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ034",
+    "key": "R-31",
+    "summary": "Please provide system screenshots showing the following as it pertains to system backups:\n\n1. Backup Frequency (Please skip, already uploaded in Hyperproof);\n2. Retention Settings;\n3. Recent Backup Log (Please skip, already uploaded in Hyperproof);\n4. Alert/Notification settings in the event of failed backup;\n5. Example Alert.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "31637372-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ008",
+    "key": "R-32",
+    "summary": "Please provide a system-generated list of production changes since the beginning of the operating period (10/01/25 - 12/31/2025). \n\nPlease provide a screenshot or a query to evidence how the list was generated.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 4
+  },
+  {
+    "id": "31637374-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ036",
+    "key": "R-34",
+    "summary": "Please provide:\n1. screenshots of branch protection configurations from the code management tool (looking to confirm if PR are required and require approval/testing\n2. Evidence source code is restricted to application developers and other authorized users.",
+    "status": "submittedToAuditor",
+    "commentCount": 0,
+    "proofCount": 1
+  },
+  {
+    "id": "31639a86-c990-11f0-b7a5-da3eb535f7d5",
+    "reference": "REQ031",
+    "key": "R-36",
+    "summary": "Please provide screenshots of available resources (support site, portal, guides, etc.) that is available to clients.",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 3
+  },
+  {
+    "id": "bfabe831-fc9b-11f0-9576-ce955952d0d8",
+    "reference": "Follow Up - 06",
+    "key": "R-52",
+    "summary": "My apologies — during the walkthrough meeting, I believe we discussed that there were no data deletion requests during the audit period. I missed the population that was uploaded for this request.\n\nI have selected three samples from the file provided and have one follow-up item:\n\nA. Follow-up:\nCan you please provide a screenshot showing how the CSV file “account_deletion_requests.csv” was generated? This will allow us to verify which system the report was pulled from and the query/filter used to populate the list.\n\nB. Sample evidence request:\nPlease provide evidence of data deletion completion (e.g., ticket, request record, confirmation, etc.) for the following requests:\n\n1. Jeremy Antone\n2. Eugene Reicher\n3. Feletia Lee",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 1
+  },
+  {
+    "id": "d4170419-0d0d-11f1-bd5d-d2e8798322e0",
+    "reference": "Follow-up - 08",
+    "key": "R-54",
+    "summary": "Please provide a manual list of computer assets as well as a screenshot from MJ's computer showing antivirus configurations.",
+    "status": "submittedToAuditor",
+    "commentCount": 1,
+    "proofCount": 2
+  }
+]

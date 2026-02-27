@@ -1,0 +1,103 @@
+{
+  "request": {
+    "createdBy": "026c91a8-9fcf-11f0-9f8c-4bdb1f700ecc",
+    "updatedBy": "73ea9ec4-6d3e-11f0-a1ef-bb162a8b3ffe",
+    "createdOn": "2026-01-28T22:51:04.285183Z",
+    "updatedOn": "2026-02-13T03:07:40.64509Z",
+    "id": "d340b988-fc9b-11f0-9576-ce955952d0d8",
+    "status": "active",
+    "orgId": "efc71137-7dd2-11f0-83a4-56d9cb821d79",
+    "permissions": [
+      "288230376151777281",
+      "9007199254741505",
+      "9007199263129601",
+      "13510798883160065",
+      "18018796690210818",
+      "144119586256584706",
+      "18014673387389958",
+      "18018796555994118",
+      "2251799830462465",
+      "2251799813685313",
+      "2251799813703681",
+      "2251801961168897",
+      "2251799813686277",
+      "2251799813947393",
+      "1157425104234218497",
+      "3463268113582129153",
+      "4503599627386881",
+      "4345973640546746369",
+      "13510798882115585",
+      "69805794224766977",
+      "3307348164766713",
+      "9218325009924089"
+    ],
+    "customFields": [],
+    "index": 53,
+    "summary": "We would like to expand testing for CTL-071, as the policy-only testing does not fully cover implementation requirements. I have selected two employees to verify that their computers are in compliance with the Asset Management Policy.\n\nFor the two samples below, please provide evidence that their computers are required to have (or have enabled):\n\n- Hard drive encryption\n- User authentication requirements (e.g., password/lock settings)\n- Security patching (e.g., OS update status / patch compliance)\n\nSamples:\n1. Owen Barron\n2. Bella Strollo",
+    "assigneeId": "bbb1abe4-8a99-11f0-aa45-63ec16ecbf94",
+    "workItemStatus": "needsRevision",
+    "priority": "medium",
+    "linkedObjects": [
+      {
+        "objectId": "7018fc3e-c98e-11f0-b7a5-da3eb535f7d5",
+        "objectType": "audit",
+        "sourceObjectId": "d340b988-fc9b-11f0-9576-ce955952d0d8"
+      }
+    ],
+    "parentId": "7018fc3e-c98e-11f0-b7a5-da3eb535f7d5",
+    "parentType": "audit",
+    "reference": "Follow Up - 07",
+    "parentName": "BARR Advisory 2025 SOC2 Type 2 Audit",
+    "parentWorkStatus": "active",
+    "isPrivate": false,
+    "_isPartialData": false,
+    "activityKey": "Follow Up - 07 (R-53)",
+    "key": "R-53",
+    "assignee": {
+      "id": "bbb58500-8a99-11f0-92dd-5654e29b7dcf",
+      "status": "active",
+      "email": "owen@usefull.us",
+      "givenName": "Owen",
+      "surname": "Barron",
+      "language": "en",
+      "locale": "US",
+      "timeZone": "America/New_York",
+      "lastLogin": "2026-02-27T19:18:02.182096Z",
+      "userId": "bbb1abe4-8a99-11f0-aa45-63ec16ecbf94",
+      "type": "activeUser"
+    }
+  },
+  "comments": [
+    {
+      "createdBy": "bbb1abe4-8a99-11f0-aa45-63ec16ecbf94",
+      "updatedBy": "bbb1abe4-8a99-11f0-aa45-63ec16ecbf94",
+      "createdOn": "2026-02-09T20:30:23.313556Z",
+      "updatedOn": "2026-02-09T20:30:23.313556Z",
+      "id": "28ff9c87-05f6-11f1-a582-0e39b9157b0d",
+      "status": "active",
+      "orgId": "efc71137-7dd2-11f0-83a4-56d9cb821d79",
+      "commentTextFormatted": "{{user:73ea9ec4-6d3e-11f0-a1ef-bb162a8b3ffe}} I'm a little confused by this comments, since our asset management policy doesn't say anything about encryption, security patching, or user authentication requirements. We say \"The asset owner will be responsible for the proper management of an asset through the entire lifecycle\" and \"Asset owners shall... Ensure assets are appropriately classified and protected\".",
+      "event": "Comment",
+      "newVersion": 0,
+      "objectId": "d340b988-fc9b-11f0-9576-ce955952d0d8",
+      "objectType": "request",
+      "isInternal": false
+    },
+    {
+      "createdBy": "73ea9ec4-6d3e-11f0-a1ef-bb162a8b3ffe",
+      "updatedBy": "73ea9ec4-6d3e-11f0-a1ef-bb162a8b3ffe",
+      "createdOn": "2026-02-13T03:07:29.761067Z",
+      "updatedOn": "2026-02-13T03:07:29.761067Z",
+      "id": "21e84d7e-0889-11f1-98b8-a6ab5b97218f",
+      "status": "active",
+      "orgId": "efc71137-7dd2-11f0-83a4-56d9cb821d79",
+      "commentTextFormatted": "{{user:bbb1abe4-8a99-11f0-aa45-63ec16ecbf94}}  - this is your control we are testing against \"The company monitors the IT infrastructure devices for compliance with the Asset Management Policy and checks for requirements such as hard drive encryption, user authentication requirements, and security patching.\"  - can you provide evidence to support the control?",
+      "event": "Comment",
+      "newVersion": 0,
+      "objectId": "d340b988-fc9b-11f0-9576-ce955952d0d8",
+      "objectType": "request",
+      "isInternal": true
+    }
+  ],
+  "proof": []
+}

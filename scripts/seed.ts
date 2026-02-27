@@ -34,6 +34,17 @@ const REQUIREMENTS_CSV = path.join(SEED_DIR, "program", "Requirements.csv");
 const REQUESTS_XLSX = path.join(SEED_DIR, "requests.xlsx");
 const EVIDENCE_DIR = path.join(SEED_DIR, "evidence");
 
+const HYPERPROOF_EXPORT_DIR = path.join(SEED_DIR, "hyperproof-export");
+const HYPERPROOF_PROOF_DIR = path.join(HYPERPROOF_EXPORT_DIR, "proof");
+
+// Known Hyperproof user UUIDs → display names (supplemented at runtime from assignee objects)
+const KNOWN_HP_USERS: Record<string, string> = {
+  "bbb1abe4-8a99-11f0-aa45-63ec16ecbf94": "Owen Barron",
+  "86f8ba74-4742-11ee-97d5-0fdfa36492bf": "Dan Chemnitz",
+  "026c91a8-9fcf-11f0-9f8c-4bdb1f700ecc": "Sydney Buchel",
+  "73ea9ec4-6d3e-11f0-a1ef-bb162a8b3ffe": "MJ Eldridge",
+};
+
 const AUDIT_2025 = {
   id: "2025-soc2-type2",
   name: "2025 SOC 2 Type II",
@@ -556,6 +567,113 @@ function scanEvidence(): EvidenceFile[] {
   );
 
   return files;
+}
+
+// ─── Hyperproof Export Loader ────────────────────────────────────────────────
+
+interface HyperproofExportEntry {
+  requestRef: string;
+  requestUuid: string;
+  comments: Array<{
+    createdBy: string;
+    createdOn: string;
+    body: string; // commentTextFormatted, {{user:UUID}} not yet resolved
+  }>;
+  proof: Array<{
+    filename: string;
+    size: number;
+    ownedBy: string;
+    uploadedOn: string;
+    contentType: string;
+    controlIdentifiers?: string[];
+  }>;
+}
+
+function loadHyperproofExports(): {
+  exports: Map<string, HyperproofExportEntry>;
+  userMap: Map<string, string>;
+} {
+  const exports = new Map<string, HyperproofExportEntry>();
+  const userMap = new Map<string, string>(Object.entries(KNOWN_HP_USERS));
+
+  if (!fs.existsSync(HYPERPROOF_EXPORT_DIR)) {
+    return { exports, userMap };
+  }
+
+  const files = fs
+    .readdirSync(HYPERPROOF_EXPORT_DIR)
+    .filter((f) => f.endsWith(".json") && f !== "_summary.json");
+
+  for (const file of files) {
+    try {
+      const raw = JSON.parse(
+        fs.readFileSync(path.join(HYPERPROOF_EXPORT_DIR, file), "utf8")
+      ) as {
+        request: Record<string, unknown>;
+        comments: Record<string, unknown>[];
+        proof: Record<string, unknown>[];
+      };
+
+      const { request, comments, proof } = raw;
+
+      // Supplement user map from assignee objects
+      const assignee = request.assignee as
+        | Record<string, string>
+        | undefined;
+      if (assignee?.userId && assignee?.givenName) {
+        userMap.set(
+          assignee.userId,
+          `${assignee.givenName} ${assignee.surname || ""}`.trim()
+        );
+      }
+
+      const reference = request.reference as string;
+      const requestUuid = request.id as string;
+
+      // Only include real comments (all events happen to be "Comment" but be explicit)
+      const realComments = comments
+        .filter((c) => (c.event as string) === "Comment")
+        .map((c) => ({
+          createdBy: c.createdBy as string,
+          createdOn: c.createdOn as string,
+          body: c.commentTextFormatted as string,
+        }));
+
+      const proofItems = proof.map((p) => ({
+        filename: p.filename as string,
+        size: (p.size as number) || 0,
+        ownedBy: ((p.ownedBy || p.createdBy) as string) || "",
+        uploadedOn: ((p.uploadedOn || p.createdOn) as string) || "",
+        contentType: (p.contentType as string) || "",
+        controlIdentifiers: p.controlIdentifiers as string[] | undefined,
+      }));
+
+      exports.set(reference, {
+        requestRef: reference,
+        requestUuid,
+        comments: realComments,
+        proof: proofItems,
+      });
+    } catch (e) {
+      warn(`Failed to parse export file ${file}: ${e}`);
+    }
+  }
+
+  console.log(
+    `  Loaded ${exports.size} requests from Hyperproof export, ${userMap.size} known users`
+  );
+  return { exports, userMap };
+}
+
+/** Replace {{user:UUID}} mentions with @Name */
+function resolveUserMentions(
+  text: string,
+  userMap: Map<string, string>
+): string {
+  return text.replace(/\{\{user:([^}]+)\}\}/g, (_: string, uuid: string) => {
+    const name = userMap.get(uuid);
+    return name ? `@${name}` : "@someone";
+  });
 }
 
 // ─── Policy Seed Data ───────────────────────────────────────────────────────
@@ -1167,6 +1285,127 @@ function seedComments(db: Database.Database) {
   console.log(`  ${comments.length} comments`);
 }
 
+function seedHyperproofComments(
+  db: Database.Database,
+  exports: Map<string, HyperproofExportEntry>,
+  userMap: Map<string, string>
+) {
+  console.log("Seeding comments from Hyperproof export...");
+
+  const stmt = db.prepare(`
+    INSERT INTO comments (request_id, author, body, visible_to_auditor, created_at)
+    VALUES (?, ?, ?, ?, ?)
+  `);
+
+  let total = 0;
+  const insertMany = db.transaction(() => {
+    for (const [ref, entry] of exports) {
+      for (const c of entry.comments) {
+        const author = userMap.get(c.createdBy) || "Unknown";
+        const body = resolveUserMentions(c.body, userMap);
+        stmt.run(ref, author, body, 1, c.createdOn);
+        total++;
+      }
+    }
+  });
+
+  insertMany();
+  console.log(`  ${total} comments`);
+}
+
+function seedHyperproofEvidence(
+  db: Database.Database,
+  exports: Map<string, HyperproofExportEntry>,
+  requests: RawRequest[],
+  userMap: Map<string, string>,
+  controlIds: Set<string>
+) {
+  console.log("Seeding Hyperproof proof files as evidence...");
+
+  const insertEvidence = db.prepare(`
+    INSERT INTO evidence (filename, file_path, file_type, file_size, uploaded_by, uploaded_at)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `);
+  const insertRequestEvidence = db.prepare(`
+    INSERT OR IGNORE INTO request_evidence (request_id, evidence_id) VALUES (?, ?)
+  `);
+  const insertControlEvidence = db.prepare(`
+    INSERT OR IGNORE INTO control_evidence (control_id, evidence_id, audit_id)
+    VALUES (?, ?, ?)
+  `);
+
+  // Build request → linked controls map (CTL-XXX IDs from xlsx)
+  const requestLinkedControls = new Map<string, string[]>();
+  for (const r of requests) {
+    requestLinkedControls.set(r.reference, r.linkedControls);
+  }
+
+  let evidenceCount = 0;
+  let requestLinks = 0;
+  let controlLinks = 0;
+  let skipped = 0;
+
+  const insertMany = db.transaction(() => {
+    for (const [ref, entry] of exports) {
+      const linkedControls = requestLinkedControls.get(ref) || [];
+
+      for (const p of entry.proof) {
+        const proofFilePath = path.join(
+          HYPERPROOF_PROOF_DIR,
+          entry.requestUuid,
+          p.filename
+        );
+
+        if (!fs.existsSync(proofFilePath)) {
+          skipped++;
+          continue;
+        }
+
+        const relPath = path.relative(ROOT, proofFilePath);
+        const uploader = userMap.get(p.ownedBy) || "Unknown";
+
+        const result = insertEvidence.run(
+          p.filename,
+          relPath,
+          fileType(p.filename),
+          p.size,
+          uploader,
+          p.uploadedOn
+        );
+        const evidenceId = Number(result.lastInsertRowid);
+        evidenceCount++;
+
+        // Always link to the request
+        insertRequestEvidence.run(ref, evidenceId);
+        requestLinks++;
+
+        // Determine which controls to link (2025 audit only)
+        const controlsToLink: string[] = [];
+        if (p.controlIdentifiers && p.controlIdentifiers.length > 0) {
+          // Explicit CTL-XXX identifiers on the proof item
+          for (const ctlId of p.controlIdentifiers) {
+            if (controlIds.has(ctlId)) controlsToLink.push(ctlId);
+          }
+        } else if (linkedControls.length === 1 && controlIds.has(linkedControls[0])) {
+          // Request tied to exactly 1 valid control → auto-link
+          controlsToLink.push(linkedControls[0]);
+        }
+
+        for (const ctlId of controlsToLink) {
+          insertControlEvidence.run(ctlId, evidenceId, AUDIT_2025.id);
+          controlLinks++;
+        }
+      }
+    }
+  });
+
+  insertMany();
+  console.log(
+    `  ${evidenceCount} evidence records, ${requestLinks} request links, ` +
+      `${controlLinks} control→evidence links, ${skipped} files not on disk`
+  );
+}
+
 // ─── Validation ─────────────────────────────────────────────────────────────
 
 function validate(db: Database.Database) {
@@ -1289,6 +1528,9 @@ function main() {
   const requests = parseRequests();
   const evidenceFiles = scanEvidence();
 
+  console.log("Loading Hyperproof export...");
+  const { exports: hpExports, userMap } = loadHyperproofExports();
+
   const controlIds = new Set(controls.map((c) => c.id));
   const criteriaIds = new Set(criteria.map((c) => c.id));
 
@@ -1303,7 +1545,15 @@ function main() {
   const controlEvidenceMap = seedEvidence(db, evidenceFiles, controlIds);
   seedRequestEvidence(db, requests, controlEvidenceMap);
   seedPolicies(db, controlIds);
-  seedComments(db);
+
+  // Comments and proof: use real Hyperproof export when available, fall back to hardcoded
+  if (hpExports.size > 0) {
+    seedHyperproofComments(db, hpExports, userMap);
+    seedHyperproofEvidence(db, hpExports, requests, userMap, controlIds);
+  } else {
+    warn("Hyperproof export not found — using hardcoded placeholder comments");
+    seedComments(db);
+  }
 
   // Validate
   validate(db);

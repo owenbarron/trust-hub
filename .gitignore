@@ -9,4 +9,4 @@ trust-hub.db
 *.db-wal
 .DS_Store
 seed-data/evidence/
-seed-data/hyperproof-export/
+seed-data/hyperproof-export/proof/
