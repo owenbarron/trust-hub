@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Trust Hub - Audit Management</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#008a94",
+            "primary-dark": "#006c74",
+            "primary-light": "#e0f2f3",
+            "background-light": "#f5f8f8",
+            "surface-light": "#ffffff",
+            "border-light": "#dae6e7",
+            "text-main": "#101818",
+            "text-muted": "#5e8a8d",
+            "slate-custom": "#4C4C4E",
+          },
+          fontFamily: {
+            display: ["Public Sans", "sans-serif"],
+            sans: ["Public Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="flex h-screen overflow-hidden text-gray-800 font-display">
+  <aside class="w-[240px] flex-shrink-0 flex flex-col h-full bg-[#4C4C4E] text-gray-300 shadow-xl z-20">
+    <div class="px-5 py-4 flex items-center gap-3 mb-2">
+      <div class="w-8 h-8 bg-white/10 rounded flex items-center justify-center text-white">
+        <span class="material-symbols-outlined text-[20px]">shield</span>
+      </div>
+      <h1 class="text-white font-semibold text-base tracking-tight">Trust Hub</h1>
+    </div>
+    <nav class="flex-1 flex flex-col space-y-0.5 px-3">
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">dashboard</span>
+        Dashboard
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">verified_user</span>
+        Controls
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">fact_check</span>
+        Requests
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">grid_view</span>
+        Criteria
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">policy</span>
+        Policies
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">folder_open</span>
+        Evidence
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded bg-[#008C95] text-white shadow-sm" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3">history</span>
+        Audits
+      </a>
+    </nav>
+    <div class="p-4 border-t border-white/10 bg-black/20 mt-auto">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold border border-white/20">
+          OB
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-white">Owen Barron</span>
+          <span class="text-[10px] text-gray-400">Admin</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light">
+    <header class="bg-white px-6 pt-6 pb-6 border-b border-gray-200 flex-shrink-0">
+      <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Audit Management</h2>
+      <p class="text-sm text-gray-500 mt-1">Manage audit lifecycle. Close completed audits and start new audit periods.</p>
+    </header>
+
+    <div class="flex-1 overflow-y-auto p-6">
+      <section class="bg-white border-2 border-primary/30 rounded-xl p-6 shadow-sm relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 relative">
+          <div>
+            <span class="bg-green-50 text-green-700 border border-green-200 px-2.5 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              ACTIVE
+            </span>
+            <h3 class="text-xl font-bold text-gray-900 mt-3 mb-1">2026 SOC 2 Type II</h3>
+            <p class="text-sm text-gray-500 font-mono">2026-soc2-type2</p>
+
+            <div class="mt-4 grid grid-cols-2 gap-4">
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Period Start</p>
+                <p class="text-sm font-medium text-gray-900">January 1, 2026</p>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Period End</p>
+                <p class="text-sm font-medium text-gray-900">December 31, 2026</p>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Auditor Firm</p>
+                <p class="text-sm font-medium text-gray-900">BARR Advisory</p>
+              </div>
+              <div>
+                <p class="text-xs font-medium text-gray-500 uppercase">Controls</p>
+                <p class="text-sm font-medium text-gray-900">88 controls (176 snapshots)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-end justify-center">
+            <button class="bg-red-600 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-red-700 transition-colors flex items-center gap-2 shadow-sm">
+              <span class="material-symbols-outlined text-[18px]">lock</span>
+              Close This Audit
+            </button>
+            <p class="text-xs text-gray-500 text-center mt-2">This action is irreversible</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-8">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">Audit History</h3>
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+          <table class="min-w-full text-left border-collapse">
+            <thead class="bg-gray-50 border-b border-gray-200">
+              <tr>
+                <th class="w-[100px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Status</th>
+                <th class="w-[30%] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Audit Name</th>
+                <th class="w-[20%] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Audit ID</th>
+                <th class="w-[25%] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Period</th>
+                <th class="w-[15%] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Closed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-primary/5 hover:bg-primary/10 transition-colors border-b border-gray-100">
+                <td class="py-4 px-4 border-l-2 border-primary">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold border bg-green-50 text-green-700 border-green-200">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Active
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-sm font-semibold text-gray-900">2026 SOC 2 Type II</td>
+                <td class="py-4 px-4 text-sm font-mono text-gray-600">2026-soc2-type2</td>
+                <td class="py-4 px-4 text-sm text-gray-700">Jan 1, 2026 &mdash; Dec 31, 2026</td>
+                <td class="py-4 px-4 text-sm text-gray-400">&mdash;</td>
+              </tr>
+              <tr class="hover:bg-gray-50 transition-colors border-b border-gray-100">
+                <td class="py-4 px-4">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold border bg-gray-100 text-gray-600 border-gray-200">
+                    <span class="material-symbols-outlined text-[14px]">lock</span>
+                    Closed
+                  </span>
+                </td>
+                <td class="py-4 px-4 text-sm font-medium text-gray-700">2025 SOC 2 Type II</td>
+                <td class="py-4 px-4 text-sm font-mono text-gray-500">2025-soc2-type2</td>
+                <td class="py-4 px-4 text-sm text-gray-600">Oct 1, 2025 &mdash; Dec 31, 2025</td>
+                <td class="py-4 px-4 text-sm text-gray-600">Jan 15, 2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mt-8">
+        <div class="bg-white border border-dashed border-gray-300 rounded-xl p-8 text-center opacity-50">
+          <span class="material-symbols-outlined text-gray-300 text-5xl mb-3">add_circle</span>
+          <h3 class="text-lg font-semibold text-gray-700 mb-1">Start a New Audit</h3>
+          <p class="text-sm text-gray-500 mb-4 max-w-md mx-auto">Starting a new audit will clone all 88 control snapshots from the most recently closed audit and reset evidence links. The new audit becomes the active audit.</p>
+          <button class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2 shadow-sm transition-colors">
+            <span class="material-symbols-outlined text-[18px]">add</span>
+            Start New Audit Period
+          </button>
+          <p class="text-xs text-gray-400 mt-2">Close the current audit before starting a new one.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+    <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full mx-4 overflow-hidden">
+      <div class="px-6 pt-6 pb-4">
+        <div class="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center mb-4">
+          <span class="material-symbols-outlined text-red-600 text-2xl">warning</span>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900">Close Audit: 2026 SOC 2 Type II</h3>
+        <p class="text-sm text-gray-500 mt-1">This action cannot be undone.</p>
+      </div>
+
+      <div class="px-6 pb-4">
+        <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+          <ul class="text-sm text-red-800 space-y-2">
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-red-600 text-[18px]">check_circle</span>
+              <span>All 88 control snapshots will be frozen as read-only</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-red-600 text-[18px]">check_circle</span>
+              <span>No further evidence can be uploaded or relinked</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-red-600 text-[18px]">check_circle</span>
+              <span>Request statuses and comments will be locked</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="material-symbols-outlined text-red-600 text-[18px]">check_circle</span>
+              <span>This audit will appear as 'Closed' in the audit history</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-4">
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="audit-confirmation">Type the audit name to confirm:</label>
+          <input class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-red-500/20 focus:border-red-500" id="audit-confirmation" placeholder="2026-soc2-type2" type="text"/>
+        </div>
+      </div>
+
+      <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end gap-3">
+        <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50">Cancel</button>
+        <button class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md opacity-50 cursor-not-allowed" disabled>Close Audit Permanently</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

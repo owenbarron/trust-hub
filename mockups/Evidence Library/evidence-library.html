@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Trust Hub - Evidence Library</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#008a94",
+            "primary-dark": "#006c74",
+            "primary-light": "#e0f2f3",
+            "background-light": "#f5f8f8",
+            "surface-light": "#ffffff",
+            "border-light": "#dae6e7",
+            "text-main": "#101818",
+            "text-muted": "#5e8a8d",
+            "slate-custom": "#4C4C4E",
+          },
+          fontFamily: {
+            display: ["Public Sans", "sans-serif"],
+            sans: ["Public Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="flex h-screen overflow-hidden text-gray-800 font-display">
+  <aside class="w-[240px] flex-shrink-0 flex flex-col h-full bg-[#4C4C4E] text-gray-300 shadow-xl z-20">
+    <div class="px-5 py-4 flex items-center gap-3 mb-2">
+      <div class="w-8 h-8 bg-white/10 rounded flex items-center justify-center text-white">
+        <span class="material-symbols-outlined text-[20px]">shield</span>
+      </div>
+      <h1 class="text-white font-semibold text-base tracking-tight">Trust Hub</h1>
+    </div>
+    <nav class="flex-1 flex flex-col space-y-0.5 px-3">
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">dashboard</span>
+        Dashboard
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">verified_user</span>
+        Controls
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">fact_check</span>
+        Requests
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">grid_view</span>
+        Criteria
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">policy</span>
+        Policies
+      </a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded bg-[#008C95] text-white shadow-sm" href="#">
+        <span class="material-symbols-outlined text-[18px] mr-3">folder_open</span>
+        Evidence
+      </a>
+      <div class="mt-auto pt-4">
+        <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#">
+          <span class="material-symbols-outlined text-[18px] mr-3 opacity-70">history</span>
+          Audits
+        </a>
+      </div>
+    </nav>
+    <div class="p-4 border-t border-white/10 bg-black/20 mt-auto">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold border border-white/20">
+          OB
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-white">Owen Barron</span>
+          <span class="text-[10px] text-gray-400">Admin</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light">
+    <header class="bg-white px-6 pt-6 pb-3 border-b border-gray-200 flex-shrink-0">
+      <div class="flex items-center justify-between gap-4">
+        <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Evidence Library</h2>
+        <div class="flex items-center gap-2">
+          <span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wide">2026 SOC 2 TYPE II &mdash; ACTIVE</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-gray-100 text-xs text-gray-600 font-semibold border border-gray-200">47 files</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="bg-white px-6 py-3 border-b border-gray-200 flex items-center gap-3 flex-shrink-0 shadow-sm z-10">
+      <div class="min-w-[140px]">
+        <div class="flex items-center justify-between border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>File type</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="min-w-[160px]">
+        <div class="flex items-center justify-between border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Linked to</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="min-w-[140px]">
+        <div class="flex items-center justify-between border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Uploaded by</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="flex-1 relative ml-2">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">search</span>
+        <input class="w-full border border-gray-300 rounded-md pl-10 pr-3 py-1.5 text-sm focus:ring-1 focus:ring-[#008C95] focus:border-[#008C95]" placeholder="Search evidence by filename..." type="text"/>
+      </div>
+    </div>
+
+    <div class="flex-1 p-6 overflow-hidden bg-gray-50/50">
+      <div class="h-full bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col shadow-sm">
+        <div class="overflow-auto flex-1">
+          <table class="min-w-full text-left border-collapse">
+            <thead class="bg-gray-50 sticky top-0 z-10 border-b border-gray-200 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+              <tr>
+                <th class="w-[35%] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 cursor-pointer group">
+                  <span class="inline-flex items-center gap-1">File Name <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">unfold_more</span></span>
+                </th>
+                <th class="w-[80px] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Type</th>
+                <th class="w-[140px] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 cursor-pointer group">
+                  <span class="inline-flex items-center gap-1">Uploaded <span class="material-symbols-outlined text-[14px]">south</span></span>
+                </th>
+                <th class="w-[140px] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 cursor-pointer group">
+                  <span class="inline-flex items-center gap-1">Uploaded By <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">unfold_more</span></span>
+                </th>
+                <th class="w-[25%] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Linked To</th>
+                <th class="w-[120px] py-3 px-3 text-xs font-semibold uppercase tracking-wider text-gray-500 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top">
+                  <p class="text-sm font-semibold text-gray-900">HRIS_Config_Screenshot.png</p>
+                </td>
+                <td class="px-3 py-4 align-top">
+                  <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[16px] text-purple-500">image</span>
+                    <span class="bg-purple-50 text-purple-700 px-1.5 py-0.5 rounded text-[10px] font-bold">PNG</span>
+                  </div>
+                </td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Oct 25, 2025</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Dan Chemnitz</td>
+                <td class="px-3 py-4 align-top">
+                  <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-001</span>
+                  <span class="bg-[#E6F8FB] text-[#0E7490] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">REQ001</span>
+                </td>
+                <td class="px-3 py-4 align-top">
+                  <div class="flex items-center justify-end gap-2">
+                    <button class="text-gray-400 hover:text-primary p-1"><span class="material-symbols-outlined text-[18px]">download</span></button>
+                    <button class="text-primary hover:text-primary-dark text-xs font-medium">Link</button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><p class="text-sm font-semibold text-gray-900">Active_Employees_Oct25.xlsx</p></td>
+                <td class="px-3 py-4 align-top">
+                  <div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-green-600">table_view</span><span class="bg-green-50 text-green-700 px-1.5 py-0.5 rounded text-[10px] font-bold">XLSX</span></div>
+                </td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Oct 26, 2025</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Dan Chemnitz</td>
+                <td class="px-3 py-4 align-top">
+                  <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-001</span>
+                  <span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-002</span>
+                  <span class="bg-[#E6F8FB] text-[#0E7490] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">REQ001</span>
+                </td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center justify-end gap-2"><button class="text-gray-400 hover:text-primary p-1"><span class="material-symbols-outlined text-[18px]">download</span></button><button class="text-primary hover:text-primary-dark text-xs font-medium">Link</button></div></td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><p class="text-sm font-semibold text-gray-900">Termination_List_YTD.csv</p></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-green-600">table_view</span><span class="bg-green-50 text-green-700 px-1.5 py-0.5 rounded text-[10px] font-bold">CSV</span></div></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Oct 26, 2025</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Dan Chemnitz</td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-001</span></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center justify-end gap-2"><button class="text-gray-400 hover:text-primary p-1"><span class="material-symbols-outlined text-[18px]">download</span></button><button class="text-primary hover:text-primary-dark text-xs font-medium">Link</button></div></td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><p class="text-sm font-semibold text-gray-900">Background_Check_Policy_v2.pdf</p></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-red-500">description</span><span class="bg-red-50 text-red-700 px-1.5 py-0.5 rounded text-[10px] font-bold">PDF</span></div></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Sep 15, 2025</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Owen Barron</td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-001</span><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-003</span></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center justify-end gap-2"><button class="text-gray-400 hover:text-primary p-1"><span class="material-symbols-outlined text-[18px]">download</span></button><button class="text-primary hover:text-primary-dark text-xs font-medium">Link</button></div></td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><p class="text-sm font-semibold text-gray-900">NDA_Template_2024.docx</p></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-blue-500">description</span><span class="bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded text-[10px] font-bold">DOC</span></div></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Sep 10, 2025</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">MJ Eldridge</td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-003</span></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center justify-end gap-2"><button class="text-gray-400 hover:text-primary p-1"><span class="material-symbols-outlined text-[18px]">download</span></button><button class="text-primary hover:text-primary-dark text-xs font-medium">Link</button></div></td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><p class="text-sm font-semibold text-gray-900">AWS_Config_Evidence.pdf</p></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-red-500">description</span><span class="bg-red-50 text-red-700 px-1.5 py-0.5 rounded text-[10px] font-bold">PDF</span></div></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Aug 22, 2025</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Igor Belagorudsky</td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-012</span><span class="bg-[#E6F8FB] text-[#0E7490] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">REQ004</span></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center justify-end gap-2"><button class="text-gray-400 hover:text-primary p-1"><span class="material-symbols-outlined text-[18px]">download</span></button><button class="text-primary hover:text-primary-dark text-xs font-medium">Link</button></div></td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><p class="text-sm font-semibold text-gray-900">Access_Review_Q3.xlsx</p></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-green-600">table_view</span><span class="bg-green-50 text-green-700 px-1.5 py-0.5 rounded text-[10px] font-bold">XLSX</span></div></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Aug 15, 2025</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Owen Barron</td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-007</span><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-015</span></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center justify-end gap-2"><button class="text-gray-400 hover:text-primary p-1"><span class="material-symbols-outlined text-[18px]">download</span></button><button class="text-primary hover:text-primary-dark text-xs font-medium">Link</button></div></td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><p class="text-sm font-semibold text-gray-900">Firewall_Rules_Export.png</p></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-purple-500">image</span><span class="bg-purple-50 text-purple-700 px-1.5 py-0.5 rounded text-[10px] font-bold">PNG</span></div></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Jul 30, 2025</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Igor Belagorudsky</td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-022</span></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center justify-end gap-2"><button class="text-gray-400 hover:text-primary p-1"><span class="material-symbols-outlined text-[18px]">download</span></button><button class="text-primary hover:text-primary-dark text-xs font-medium">Link</button></div></td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><p class="text-sm font-semibold text-gray-900">Data_Retention_Policy.pdf</p></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-red-500">description</span><span class="bg-red-50 text-red-700 px-1.5 py-0.5 rounded text-[10px] font-bold">PDF</span></div></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Jul 12, 2025</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Owen Barron</td>
+                <td class="px-3 py-4 align-top"><span class="text-sm text-gray-400">No controls linked</span></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center justify-end gap-2"><button class="text-gray-400 hover:text-primary p-1"><span class="material-symbols-outlined text-[18px]">download</span></button><button class="text-primary hover:text-primary-dark text-xs font-medium">Link</button></div></td>
+              </tr>
+
+              <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+                <td class="px-3 py-4 align-top"><p class="text-sm font-semibold text-gray-900">Vendor_Security_Assessment.pdf</p></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-red-500">description</span><span class="bg-red-50 text-red-700 px-1.5 py-0.5 rounded text-[10px] font-bold">PDF</span></div></td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">Jun 28, 2025</td>
+                <td class="px-3 py-4 align-top text-sm text-gray-700">MJ Eldridge</td>
+                <td class="px-3 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-005</span><span class="bg-[#E8F4F4] text-[#006C75] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">CTL-041</span><span class="bg-[#E6F8FB] text-[#0E7490] px-2 py-0.5 rounded text-xs font-medium mr-1 mb-1 inline-block">REQ008</span></td>
+                <td class="px-3 py-4 align-top"><div class="flex items-center justify-end gap-2"><button class="text-gray-400 hover:text-primary p-1"><span class="material-symbols-outlined text-[18px]">download</span></button><button class="text-primary hover:text-primary-dark text-xs font-medium">Link</button></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="border-t border-gray-200 bg-gray-50 px-4 py-2 flex items-center justify-between">
+          <p class="text-xs text-gray-500">Showing 1-10 of 47 files</p>
+          <p class="text-xs text-gray-500">Sorted by: Uploaded (newest first)</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"></head><body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/20">
+
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Control Detail: Employee Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#008a94",
+              "background-light": "#f5f8f8",
+              "background-dark": "#0f2223",
+              "slate-custom": "#4C4C4E",
+            },
+            fontFamily: {
+              display: ["Public Sans", "sans-serif"],
+              sans: ["Public Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      }
+    </script>
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Sidebar -->
+<aside class="flex w-64 flex-col bg-slate-custom dark:bg-[#1a2c2d] border-r border-slate-700 dark:border-slate-800 transition-all duration-300 ease-in-out shrink-0">
+<div class="flex h-16 items-center gap-3 px-6 py-4 border-b border-slate-600 dark:border-slate-800">
+<div class="h-8 w-8 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl" style="">security</span>
+</div>
+<h1 class="text-white text-lg font-bold tracking-tight" style="">Trust Hub</h1>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 py-6 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-white/10 hover:text-white transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-[20px]" style="">dashboard</span>
+<span class="text-sm font-medium" style="">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary text-white shadow-sm" href="#" style="">
+<span class="material-symbols-outlined text-[20px] fill-1" style="">shield</span>
+<span class="text-sm font-medium" style="">Controls</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-white/10 hover:text-white transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-[20px]" style="">assignment</span>
+<span class="text-sm font-medium" style="">Requests</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-white/10 hover:text-white transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-[20px]" style="">group</span>
+<span class="text-sm font-medium" style="">Audits</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-white/10 hover:text-white transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-[20px]" style="">folder_open</span>
+<span class="text-sm font-medium" style="">Policy Center</span>
+</a>
+<div class="mt-4 pt-4 border-t border-slate-600 dark:border-slate-800">
+<p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2" style="">System</p>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-white/10 hover:text-white transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-[20px]" style="">settings</span>
+<span class="text-sm font-medium" style="">Settings</span>
+</a>
+</div>
+</nav>
+<div class="p-4 border-t border-slate-600 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-full bg-slate-300 bg-cover bg-center" data-alt="Profile picture of a woman with long hair" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBpQm6o3WS1h9P_WZVOiQyZ6PJAWdJIZb2Y8dpTJdfzcqQWEyYCnbVFbdAHojSO0LTOh5IS8FGpFHPa-8UiW2scEOHSr-lHXOTWrPhKGb0KsGhfJSePCyrrx9eLIJI-lP30XK5-O3PP2etZliqZbGCjXzUDKy9wljUYGVTJPEuLhEeNQkk9O0rScrdZM_IS_FT0CbyYrBMy6bjuMSoeOkbXauC4Vu8Jj6azLqGNS6UO_Yag5QOpdOB9LNyY4fRg_z5StpK3oDgsx6o&quot;);"></div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-medium" style="">Jane Doe</p>
+<p class="text-slate-400 text-xs" style="">Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex flex-1 flex-col h-full overflow-hidden bg-background-light dark:bg-background-dark relative">
+<!-- Header Section -->
+<div class="flex-none bg-white dark:bg-[#132a2c] border-b border-slate-200 dark:border-slate-700 px-8 pt-6 pb-0 shadow-sm z-10">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 mb-4 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#" style="">Controls</a>
+<span class="material-symbols-outlined text-xs" style="">chevron_right</span>
+<span class="font-medium text-slate-900 dark:text-white" style="">CTL-001</span>
+</div>
+<!-- Title & Actions -->
+<div class="flex flex-wrap items-start justify-between gap-4 mb-6">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight" style="">CTL-001 Employee Onboarding</h2>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800" style="">
+<span class="material-symbols-outlined text-[14px]" style="">verified</span>
+                                Fresh until 09/11/2026
+                            </span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm max-w-2xl" style="">Ensures all new hires complete background checks and sign NDA prior to system access.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-600 dark:hover:bg-slate-700 transition-colors" style="">
+                            Edit
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-lg shadow-sm transition-all focus:ring-2 focus:ring-primary/20 focus:outline-none" style="">
+<span class="material-symbols-outlined text-[18px]" style="">upload</span>
+                            Upload Evidence
+                        </button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex gap-8 border-b border-slate-200 dark:border-slate-700">
+<button class="pb-3 px-1 text-sm font-bold text-primary border-b-[3px] border-primary" style="">Details</button>
+<button class="pb-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border-b-[3px] border-transparent transition-colors" style="">Criteria</button>
+<button class="pb-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border-b-[3px] border-transparent transition-colors" style="">Evidence <span class="ml-1.5 px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-xs text-slate-600 dark:text-slate-300" style="">4</span></button>
+<button class="pb-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border-b-[3px] border-transparent transition-colors" style="">Requests</button>
+</div>
+</div>
+<!-- Content Scroll Area -->
+<div class="flex-1 overflow-y-auto p-8">
+<div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column (Main Details) -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Control Details Card -->
+<div class="bg-white dark:bg-[#132a2c] rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between bg-slate-50 dark:bg-[#0f2223]">
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm uppercase tracking-wide" style="">Control Configuration</h3>
+<span class="material-symbols-outlined text-slate-400 text-xl cursor-pointer hover:text-primary" style="">more_horiz</span>
+</div>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8">
+<div class="space-y-1">
+<label class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase" style="">Control ID</label>
+<p class="text-sm font-semibold text-slate-900 dark:text-white font-mono bg-slate-100 dark:bg-slate-800 w-fit px-2 py-0.5 rounded" style="">CTL-001</p>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase" style="">Owner</label>
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-slate-300 bg-cover bg-center" data-alt="Small profile picture of Jane Doe" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAcASWlxjkKG9Dq9uzG-rN0UI_sk7ZbSOOttrj4pimDpy7dkjbVD39hU_OtQIuTH9HF_gpri_E2BniSN8YLWwVHGtGiuXLfDOluuKctts9OlwO2Nh_3GwJC5J0qfjMzN3ks_kFEVzHtRBCIwCLEu1F0BOiSgQOOeYuMv4JBlpYxpaoBUyZvhjJmkdVdOgTX8rQvZPIwLjQBGrsZAXTnedo8Zow2QdDswPwVFwIXxEodqX9jG8Y0_gTRVKGrB2ZYz2DNSi_MRYd4MGY&quot;);"></div>
+<p class="text-sm font-medium text-slate-900 dark:text-white" style="">Jane Doe</p>
+</div>
+</div>
+<div class="space-y-1 md:col-span-2">
+<label class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase" style="">Control Description</label>
+<p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed" style="">
+                                        Human Resources performs background checks on all new employees prior to their start date. Additionally, all employees are required to sign a Non-Disclosure Agreement (NDA) and the Employee Handbook acknowledgment before being granted access to production systems.
+                                    </p>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase" style="">Frameworks</label>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600" style="">SOC 2 Type II</span>
+<span class="inline-flex items-center px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-xs font-medium text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600" style="">ISO 27001</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase" style="">Frequency</label>
+<p class="text-sm font-medium text-slate-900 dark:text-white" style="">Per Occurrence / Hiring Event</p>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase" style="">Created Date</label>
+<p class="text-sm text-slate-700 dark:text-slate-300" style="">Jan 15, 2023</p>
+</div>
+<div class="space-y-1">
+<label class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase" style="">Last Updated</label>
+<p class="text-sm text-slate-700 dark:text-slate-300" style="">Sep 11, 2023</p>
+</div>
+</div>
+</div>
+<!-- Linked Items Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Linked Criteria -->
+<div class="flex flex-col gap-3">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white" style="">Linked Criteria</h4>
+<div class="bg-white dark:bg-[#132a2c] rounded-lg border border-slate-200 dark:border-slate-700 p-4 shadow-sm hover:border-primary/50 transition-colors group cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded" style="">CC1.1</span>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary text-sm" style="">open_in_new</span>
+</div>
+<p class="text-sm text-slate-700 dark:text-slate-200 font-medium line-clamp-2" style="">The entity demonstrates a commitment to integrity and ethical values.</p>
+</div>
+<div class="bg-white dark:bg-[#132a2c] rounded-lg border border-slate-200 dark:border-slate-700 p-4 shadow-sm hover:border-primary/50 transition-colors group cursor-pointer">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded" style="">CC1.2</span>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-primary text-sm" style="">open_in_new</span>
+</div>
+<p class="text-sm text-slate-700 dark:text-slate-200 font-medium line-clamp-2" style="">The board of directors demonstrates independence from management and exercises oversight.</p>
+</div>
+</div>
+<!-- Linked Requests -->
+<div class="flex flex-col gap-3">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white" style="">Active Requests</h4>
+<div class="bg-white dark:bg-[#132a2c] rounded-lg border border-slate-200 dark:border-slate-700 p-4 shadow-sm hover:border-primary/50 transition-colors group cursor-pointer">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded" style="">REQ-2023-001</span>
+<span class="inline-flex h-2 w-2 rounded-full bg-amber-500"></span>
+</div>
+<p class="text-sm text-slate-900 dark:text-white font-medium mb-1" style="">Q3 New Hire Sample</p>
+<div class="flex items-center gap-2 text-xs text-slate-500" style="">
+<span class="material-symbols-outlined text-[14px]" style="">calendar_today</span>
+                                        Due in 3 days
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Health & Status) -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Health Card -->
+<div class="bg-white dark:bg-[#132a2c] rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden sticky top-0">
+<div class="px-6 py-4 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-[#0f2223]">
+<h3 class="font-semibold text-slate-900 dark:text-white text-sm uppercase tracking-wide" style="">Control Health</h3>
+</div>
+<div class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Implementation Status -->
+<div class="p-5 flex items-center justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="flex flex-col gap-1">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300" style="">Implementation</span>
+<span class="text-xs text-slate-500" style="">Last check: 2 days ago</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 border border-amber-200 dark:border-amber-800" style="">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                        In Progress
+                                    </span>
+</div>
+<!-- Design Effectiveness -->
+<div class="p-5 flex items-center justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="flex flex-col gap-1">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300" style="">Design</span>
+<span class="text-xs text-slate-500" style="">Auditor verified</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800" style="">
+<span class="material-symbols-outlined text-[14px]" style="">check</span>
+                                        Effective
+                                    </span>
+</div>
+<!-- Operating Effectiveness -->
+<div class="p-5 flex items-center justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="flex flex-col gap-1">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300" style="">Operation</span>
+<span class="text-xs text-slate-500" style="">Internal audit</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800" style="">
+<span class="material-symbols-outlined text-[14px]" style="">check</span>
+                                        Effective
+                                    </span>
+</div>
+<!-- Automation Status -->
+<div class="p-5 flex items-center justify-between group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<div class="flex flex-col gap-1">
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300" style="">Automation</span>
+<span class="text-xs text-slate-500" style="">Integration</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 border border-slate-200 dark:border-slate-700" style="">
+                                        Not Started
+                                    </span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-[#0f2223] px-5 py-3 border-t border-slate-200 dark:border-slate-700">
+<button class="w-full text-primary text-xs font-bold uppercase tracking-wide flex items-center justify-center gap-2 hover:underline" style="">
+                                    View Audit Logs <span class="material-symbols-outlined text-sm" style="">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Attachments Mini List (Bonus for Dense Feel) -->
+<div class="bg-white dark:bg-[#132a2c] rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm p-5">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white mb-3" style="">Recent Evidence</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-3" style="">
+<div class="bg-red-100 text-red-600 p-1.5 rounded text-xs font-bold" style="">PDF</div>
+<div class="flex flex-col min-w-0">
+<a class="text-sm font-medium text-slate-700 dark:text-slate-300 truncate hover:text-primary" href="#" style="">Background_Check_Policy_v2.pdf</a>
+<span class="text-xs text-slate-500" style="">Added yesterday by Jane Doe</span>
+</div>
+</li>
+<li class="flex items-center gap-3" style="">
+<div class="bg-blue-100 text-blue-600 p-1.5 rounded text-xs font-bold" style="">DOC</div>
+<div class="flex flex-col min-w-0">
+<a class="text-sm font-medium text-slate-700 dark:text-slate-300 truncate hover:text-primary" href="#" style="">NDA_Template_2024.docx</a>
+<span class="text-xs text-slate-500" style="">Added 5 days ago by HR Team</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

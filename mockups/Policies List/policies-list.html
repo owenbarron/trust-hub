@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Trust Hub - Policy Register</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#008a94",
+            "primary-dark": "#006c74",
+            "primary-light": "#e0f2f3",
+            "background-light": "#f5f8f8",
+            "surface-light": "#ffffff",
+            "border-light": "#dae6e7",
+            "text-main": "#101818",
+            "text-muted": "#5e8a8d",
+            "slate-custom": "#4C4C4E",
+          },
+          fontFamily: {
+            display: ["Public Sans", "sans-serif"],
+            sans: ["Public Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="flex h-screen overflow-hidden text-gray-800 font-display">
+  <aside class="w-[240px] flex-shrink-0 flex flex-col h-full bg-[#4C4C4E] text-gray-300 shadow-xl z-20">
+    <div class="px-5 py-4 flex items-center gap-3 mb-2">
+      <div class="w-8 h-8 bg-white/10 rounded flex items-center justify-center text-white">
+        <span class="material-symbols-outlined text-[20px]">shield</span>
+      </div>
+      <h1 class="text-white font-semibold text-base tracking-tight">Trust Hub</h1>
+    </div>
+    <nav class="flex-1 flex flex-col space-y-0.5 px-3">
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-[18px] mr-3 opacity-70">dashboard</span>Dashboard</a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-[18px] mr-3 opacity-70">verified_user</span>Controls</a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-[18px] mr-3 opacity-70">fact_check</span>Requests</a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-[18px] mr-3 opacity-70">grid_view</span>Criteria</a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded bg-[#008C95] text-white shadow-sm" href="#"><span class="material-symbols-outlined text-[18px] mr-3">policy</span>Policies</a>
+      <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-[18px] mr-3 opacity-70">folder_open</span>Evidence</a>
+      <div class="mt-auto pt-4">
+        <a class="group flex items-center px-3 py-1.5 text-sm font-medium rounded text-gray-300 hover:bg-white/10 hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-[18px] mr-3 opacity-70">history</span>Audits</a>
+      </div>
+    </nav>
+    <div class="p-4 border-t border-white/10 bg-black/20 mt-auto">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-teal-500 to-emerald-500 flex items-center justify-center text-white text-xs font-bold border border-white/20">OB</div>
+        <div class="flex flex-col">
+          <span class="text-sm font-medium text-white">Owen Barron</span>
+          <span class="text-[10px] text-gray-400">Admin</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="flex-1 flex flex-col h-full overflow-hidden bg-background-light">
+    <header class="bg-white px-6 pt-6 pb-3 border-b border-gray-200 flex-shrink-0">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Policy Register</h2>
+          <p class="text-sm text-gray-500 mt-1">Organization-wide policies linked to compliance controls. Policies persist across all audits.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-1 rounded-full text-xs font-medium inline-flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[14px]">public</span>
+            Global Scope
+          </span>
+          <span class="px-2.5 py-0.5 rounded-full bg-gray-100 text-xs text-gray-600 font-semibold border border-gray-200 ml-3">8 Policies</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="bg-white px-6 py-3 border-b border-gray-200 flex items-center gap-3 flex-shrink-0 shadow-sm z-10">
+      <div class="min-w-[160px]">
+        <div class="flex items-center justify-between border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Review status</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="min-w-[180px]">
+        <div class="flex items-center justify-between border border-gray-300 rounded-md px-3 py-1.5 bg-white text-sm text-gray-700 cursor-pointer hover:border-[#008C95] transition-colors">
+          <span>Relationship type</span>
+          <span class="material-symbols-outlined text-gray-400 text-[18px]">expand_more</span>
+        </div>
+      </div>
+      <div class="flex-1 relative ml-2">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">search</span>
+        <input class="w-full border border-gray-300 rounded-md pl-10 pr-3 py-1.5 text-sm focus:ring-1 focus:ring-[#008C95] focus:border-[#008C95]" placeholder="Search policies by name or description..." type="text"/>
+      </div>
+    </div>
+
+    <div class="px-6 pt-6 pb-0">
+      <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-green-500">
+          <p class="text-xs font-medium text-gray-500 uppercase">Up to Date</p>
+          <p class="text-2xl font-bold text-green-700 mt-1">5</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-amber-500">
+          <p class="text-xs font-medium text-gray-500 uppercase">Review Due</p>
+          <p class="text-2xl font-bold text-amber-700 mt-1">2</p>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm border-l-4 border-red-500">
+          <p class="text-xs font-medium text-gray-500 uppercase">Overdue</p>
+          <p class="text-2xl font-bold text-red-700 mt-1">1</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-6 pb-6 flex-1 overflow-auto">
+      <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+        <table class="min-w-full text-left border-collapse">
+          <thead class="bg-gray-50 border-b border-gray-200">
+            <tr>
+              <th class="w-[30%] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500 cursor-pointer group">
+                <span class="inline-flex items-center gap-1">Policy Name <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">unfold_more</span></span>
+              </th>
+              <th class="w-[30%] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Description</th>
+              <th class="w-[130px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500 cursor-pointer group">
+                <span class="inline-flex items-center gap-1">Next Review <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">unfold_more</span></span>
+              </th>
+              <th class="w-[100px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500 text-center cursor-pointer group">
+                <span class="inline-flex items-center gap-1">Controls <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 transition-opacity">unfold_more</span></span>
+              </th>
+              <th class="w-[180px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Relationship Types</th>
+              <th class="w-[100px] py-3 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500 text-right">Document</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+              <td class="px-4 py-4 align-top"><a class="text-sm font-semibold text-primary hover:text-primary-dark hover:underline cursor-pointer" href="/policies/information-security-policy">Information Security Policy</a></td>
+              <td class="px-4 py-4 align-top"><p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Establishes the framework for information security management across the organization, including classification, handling, and protection requirements.</p></td>
+              <td class="px-4 py-4 align-top"><span class="text-sm text-green-700 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span>Mar 15, 2026</span></td>
+              <td class="px-4 py-4 align-top text-sm font-medium text-gray-900 text-center">12</td>
+              <td class="px-4 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">fulfills: 8</span><span class="bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">governs: 4</span></td>
+              <td class="px-4 py-4 align-top text-right"><button class="text-primary hover:text-primary-dark"><span class="material-symbols-outlined text-[18px]">download</span></button></td>
+            </tr>
+
+            <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+              <td class="px-4 py-4 align-top"><a class="text-sm font-semibold text-primary hover:text-primary-dark hover:underline cursor-pointer" href="/policies/acceptable-use-policy">Acceptable Use Policy</a></td>
+              <td class="px-4 py-4 align-top"><p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Defines acceptable use of company IT resources, including internet, email, and social media usage guidelines for all employees.</p></td>
+              <td class="px-4 py-4 align-top"><span class="text-sm text-red-700 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">error</span>Nov 1, 2025</span></td>
+              <td class="px-4 py-4 align-top text-sm font-medium text-gray-900 text-center">6</td>
+              <td class="px-4 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">governs: 6</span></td>
+              <td class="px-4 py-4 align-top text-right"><button class="text-primary hover:text-primary-dark"><span class="material-symbols-outlined text-[18px]">download</span></button></td>
+            </tr>
+
+            <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+              <td class="px-4 py-4 align-top"><a class="text-sm font-semibold text-primary hover:text-primary-dark hover:underline cursor-pointer" href="/policies/data-retention-disposal-policy">Data Retention &amp; Disposal Policy</a></td>
+              <td class="px-4 py-4 align-top"><p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Specifies retention periods for different data categories and secure disposal procedures for physical and digital records.</p></td>
+              <td class="px-4 py-4 align-top"><span class="text-sm text-green-700 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span>Apr 1, 2026</span></td>
+              <td class="px-4 py-4 align-top text-sm font-medium text-gray-900 text-center">5</td>
+              <td class="px-4 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">fulfills: 3</span><span class="bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">governs: 2</span></td>
+              <td class="px-4 py-4 align-top text-right"><button class="text-primary hover:text-primary-dark"><span class="material-symbols-outlined text-[18px]">download</span></button></td>
+            </tr>
+
+            <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+              <td class="px-4 py-4 align-top"><a class="text-sm font-semibold text-primary hover:text-primary-dark hover:underline cursor-pointer" href="/policies/incident-response-plan">Incident Response Plan</a></td>
+              <td class="px-4 py-4 align-top"><p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Documents procedures for identifying, containing, eradicating, and recovering from security incidents, including escalation procedures.</p></td>
+              <td class="px-4 py-4 align-top"><span class="text-sm text-green-700 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span>Jun 30, 2026</span></td>
+              <td class="px-4 py-4 align-top text-sm font-medium text-gray-900 text-center">8</td>
+              <td class="px-4 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">fulfills: 6</span><span class="bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">requires_acknowledgement: 2</span></td>
+              <td class="px-4 py-4 align-top text-right"><button class="text-primary hover:text-primary-dark"><span class="material-symbols-outlined text-[18px]">download</span></button></td>
+            </tr>
+
+            <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+              <td class="px-4 py-4 align-top"><a class="text-sm font-semibold text-primary hover:text-primary-dark hover:underline cursor-pointer" href="/policies/access-control-policy">Access Control Policy</a></td>
+              <td class="px-4 py-4 align-top"><p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Governs user access provisioning, deprovisioning, and periodic access reviews across production systems and sensitive data stores.</p></td>
+              <td class="px-4 py-4 align-top"><span class="text-sm text-green-700 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span>May 15, 2026</span></td>
+              <td class="px-4 py-4 align-top text-sm font-medium text-gray-900 text-center">15</td>
+              <td class="px-4 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">fulfills: 9</span><span class="bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">governs: 4</span><span class="bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">requires_acknowledgement: 2</span></td>
+              <td class="px-4 py-4 align-top text-right"><button class="text-primary hover:text-primary-dark"><span class="material-symbols-outlined text-[18px]">download</span></button></td>
+            </tr>
+
+            <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+              <td class="px-4 py-4 align-top"><a class="text-sm font-semibold text-primary hover:text-primary-dark hover:underline cursor-pointer" href="/policies/change-management-policy">Change Management Policy</a></td>
+              <td class="px-4 py-4 align-top"><p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Establishes the process for requesting, reviewing, approving, and implementing changes to production systems and infrastructure.</p></td>
+              <td class="px-4 py-4 align-top"><span class="text-sm text-amber-700 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>Mar 1, 2026</span></td>
+              <td class="px-4 py-4 align-top text-sm font-medium text-gray-900 text-center">7</td>
+              <td class="px-4 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">fulfills: 5</span><span class="bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">governs: 2</span></td>
+              <td class="px-4 py-4 align-top text-right"><button class="text-primary hover:text-primary-dark"><span class="material-symbols-outlined text-[18px]">download</span></button></td>
+            </tr>
+
+            <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+              <td class="px-4 py-4 align-top"><a class="text-sm font-semibold text-primary hover:text-primary-dark hover:underline cursor-pointer" href="/policies/business-continuity-plan">Business Continuity Plan</a></td>
+              <td class="px-4 py-4 align-top"><p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Outlines strategies and procedures for maintaining critical operations during and after a disaster or significant disruption.</p></td>
+              <td class="px-4 py-4 align-top"><span class="text-sm text-green-700 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">check_circle</span>Aug 1, 2026</span></td>
+              <td class="px-4 py-4 align-top text-sm font-medium text-gray-900 text-center">4</td>
+              <td class="px-4 py-4 align-top"><span class="bg-[#E8F4F4] text-[#006C75] px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">fulfills: 4</span></td>
+              <td class="px-4 py-4 align-top text-right"><button class="text-primary hover:text-primary-dark"><span class="material-symbols-outlined text-[18px]">download</span></button></td>
+            </tr>
+
+            <tr class="group transition-colors hover:bg-[#F1F5F9] border-b border-gray-100">
+              <td class="px-4 py-4 align-top"><a class="text-sm font-semibold text-primary hover:text-primary-dark hover:underline cursor-pointer" href="/policies/vendor-management-policy">Vendor Management Policy</a></td>
+              <td class="px-4 py-4 align-top"><p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Defines requirements for vendor due diligence, risk assessment, contractual obligations, and ongoing monitoring of third-party providers.</p></td>
+              <td class="px-4 py-4 align-top"><span class="text-sm text-amber-700 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>Feb 28, 2026</span></td>
+              <td class="px-4 py-4 align-top text-sm font-medium text-gray-900 text-center">3</td>
+              <td class="px-4 py-4 align-top"><span class="bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded text-[10px] font-medium inline-block mr-1 mb-1">governs: 3</span></td>
+              <td class="px-4 py-4 align-top text-right"><button class="text-primary hover:text-primary-dark"><span class="material-symbols-outlined text-[18px]">download</span></button></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="border-t border-gray-200 bg-gray-50 px-4 py-2">
+          <p class="text-xs text-gray-500">8 policies</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
