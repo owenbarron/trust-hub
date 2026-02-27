@@ -15,12 +15,13 @@ function requestAudit(requestId: string): string | null {
 }
 
 export async function GET(request: NextRequest, { params }: Params) {
+  const id = decodeURIComponent(params.id);
   const auditId = request.nextUrl.searchParams.get("auditId");
   if (!auditId) {
     return badRequest("`auditId` query parameter is required.");
   }
 
-  const detail = getRequestDetail(params.id, auditId);
+  const detail = getRequestDetail(id, auditId);
   if (!detail) {
     return notFound(`Request ${params.id} not found in audit ${auditId}.`);
   }
@@ -29,11 +30,12 @@ export async function GET(request: NextRequest, { params }: Params) {
 }
 
 export async function PATCH(request: NextRequest, { params }: Params) {
+  const id = decodeURIComponent(params.id);
   const body = await request.json().catch(() => ({}));
-  const auditId = (body?.auditId as string | undefined) ?? requestAudit(params.id);
+  const auditId = (body?.auditId as string | undefined) ?? requestAudit(id);
 
   if (!auditId) {
-    return notFound(`Request ${params.id} not found.`);
+    return notFound(`Request ${id} not found.`);
   }
 
   const auditCheck = ensureActiveAudit(auditId);
@@ -56,7 +58,7 @@ export async function PATCH(request: NextRequest, { params }: Params) {
   const setSql = Object.keys(patch)
     .map((key) => `${key} = ?`)
     .join(", ");
-  const values = [...Object.values(patch), params.id, auditId];
+  const values = [...Object.values(patch), id, auditId];
 
   const result = db()
     .prepare(
@@ -67,16 +69,17 @@ export async function PATCH(request: NextRequest, { params }: Params) {
     .run(...values);
 
   if (result.changes === 0) {
-    return notFound(`Request ${params.id} not found in audit ${auditId}.`);
+    return notFound(`Request ${id} not found in audit ${auditId}.`);
   }
 
   return NextResponse.json({ ok: true });
 }
 
 export async function DELETE(request: NextRequest, { params }: Params) {
-  const auditId = request.nextUrl.searchParams.get("auditId") ?? requestAudit(params.id);
+  const id = decodeURIComponent(params.id);
+  const auditId = request.nextUrl.searchParams.get("auditId") ?? requestAudit(id);
   if (!auditId) {
-    return notFound(`Request ${params.id} not found.`);
+    return notFound(`Request ${id} not found.`);
   }
 
   const auditCheck = ensureActiveAudit(auditId);
@@ -85,10 +88,10 @@ export async function DELETE(request: NextRequest, { params }: Params) {
   }
 
   const trx = db().transaction(() => {
-    db().prepare(`DELETE FROM request_evidence WHERE request_id = ?`).run(params.id);
-    db().prepare(`DELETE FROM request_controls WHERE request_id = ?`).run(params.id);
-    db().prepare(`DELETE FROM comments WHERE request_id = ?`).run(params.id);
-    db().prepare(`DELETE FROM requests WHERE id = ? AND audit_id = ?`).run(params.id, auditId);
+    db().prepare(`DELETE FROM request_evidence WHERE request_id = ?`).run(id);
+    db().prepare(`DELETE FROM request_controls WHERE request_id = ?`).run(id);
+    db().prepare(`DELETE FROM comments WHERE request_id = ?`).run(id);
+    db().prepare(`DELETE FROM requests WHERE id = ? AND audit_id = ?`).run(id, auditId);
   });
 
   trx();

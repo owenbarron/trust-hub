@@ -21,7 +21,7 @@ export default function RequestDetailPage({ params, searchParams }: PageProps) {
   const auditId = pickParam(searchParams.audit);
   const context = resolveAuditContext(auditId);
 
-  const detail = getRequestDetail(params.id, context.selectedAudit.id);
+  const detail = getRequestDetail(decodeURIComponent(params.id), context.selectedAudit.id);
   if (!detail) {
     notFound();
   }
