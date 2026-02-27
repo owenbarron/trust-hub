@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "npx tsx scripts/seed.ts && next build",
     "start": "next start",
     "seed": "npx tsx scripts/seed.ts",
     "typecheck": "tsc --noEmit"

@@ -2,6 +2,9 @@
 const nextConfig = {
   experimental: {
     typedRoutes: false,
+    outputFileTracingIncludes: {
+      "/**": ["./trust-hub.db"],
+    },
   },
 };
 

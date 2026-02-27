@@ -1,8 +1,14 @@
 import Database from "better-sqlite3";
+import fs from "fs";
 import path from "path";
 import { Audit } from "./types";
 
-const DB_PATH = path.join(process.cwd(), "trust-hub.db");
+// On Vercel, the project root is read-only at runtime. We seed the DB during
+// the build step (vercel-build) so the file exists in the bundle, then copy
+// it to /tmp (the only writable directory) on first use.
+const IS_VERCEL = !!process.env.VERCEL;
+const BUNDLED_DB_PATH = path.join(process.cwd(), "trust-hub.db");
+const RUNTIME_DB_PATH = IS_VERCEL ? "/tmp/trust-hub.db" : BUNDLED_DB_PATH;
 
 declare global {
   // eslint-disable-next-line no-var
@@ -11,7 +17,10 @@ declare global {
 
 function openDb(): Database.Database {
   if (!global.__trustHubDb) {
-    global.__trustHubDb = new Database(DB_PATH, {
+    if (IS_VERCEL && !fs.existsSync(RUNTIME_DB_PATH)) {
+      fs.copyFileSync(BUNDLED_DB_PATH, RUNTIME_DB_PATH);
+    }
+    global.__trustHubDb = new Database(RUNTIME_DB_PATH, {
       fileMustExist: true,
     });
     global.__trustHubDb.pragma("foreign_keys = ON");
