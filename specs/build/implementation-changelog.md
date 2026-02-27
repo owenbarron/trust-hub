@@ -65,18 +65,33 @@ Implemented the v1 build plan in `specs/build` as a Next.js 14 App Router applic
 ## Change Entries (continued)
 - 2026-02-27 18:00 UTC: Created `CLAUDE.md` (thin pointer) and `AGENTS.md` (full operating manual) at repo root to enable clean Claude Code / Codex collaboration and persist operational rules across sessions.
 
-## Handoff — 2026-02-27
+## Change Entries (session 2026-02-27 #2)
+- 2026-02-27 UTC: Scraped all 54 audit requests from Hyperproof internal API using browser session token + OAuth client credentials. Exported request details, comments, and proof file metadata to `seed-data/hyperproof-export/` (55 JSON files). Downloaded 105 of 115 proof binary files to `seed-data/hyperproof-export/proof/` (gitignored).
+- 2026-02-27 UTC: Integrated Hyperproof export into `scripts/seed.ts`. Seeds 58 real comments (resolves `{{user:UUID}}` @mentions to display names), 115 evidence records from proof metadata, 158 request→evidence links, 89 control→evidence links. Falls back to hardcoded placeholder comments if export directory absent.
+- 2026-02-27 UTC: Updated `.gitignore` to track export JSON files (only exclude binary `proof/` subdir). Committed 55 JSON files so Vercel build has real data at seed time.
+- 2026-02-27 UTC: Fixed seed skipping evidence records when binary proof files not on disk — Vercel now gets full 115 metadata rows; only file download is unavailable there.
+- 2026-02-27 UTC: Fixed "Follow Up" request detail pages returning 404. Root cause: Next.js App Router passes `params.id` as raw URL-encoded string (`Follow%20Up%20-%2001`); added `decodeURIComponent()` in page component and all three API route handlers (`GET`/`PATCH`/`DELETE`).
+- 2026-02-27 UTC: Set up Vercel deployment (`vercel-build` script, `outputFileTracingIncludes` for DB bundling, Vercel-aware `lib/db.ts` copy-to-/tmp on cold start). App live at https://trust-hub-ten.vercel.app.
+
+## Handoff — 2026-02-27 (end of day)
 
 ### What Was Done
-- Created `CLAUDE.md`: thin pointer that directs Claude Code to read `AGENTS.md` on every session start.
-- Created `AGENTS.md`: single source of truth for all agents — covers absolute rules, validation checklist, server restart requirements, changelog/handoff protocol, architecture quick reference, key code patterns, and common gotchas.
+- **Hyperproof data scrape**: Built `scripts/scrape-hyperproof.ts` — exports all 54 audit requests with real comments and proof metadata from Hyperproof before contract ends. Uses browser JWT (SESSION_TOKEN) for internal API + OAuth client credentials for file downloads.
+- **Real seed data**: `scripts/seed.ts` now ingests the export JSON files and seeds real comments (58), proof as evidence (115 records), and control links (89). `{{user:UUID}}` mentions resolved to `@Name`.
+- **Vercel deployment**: App deploys to https://trust-hub-ten.vercel.app with seed-on-build. DB bundled via `outputFileTracingIncludes`, copied to `/tmp` at runtime.
+- **Bug fix**: "Follow Up" requests now open correctly (`decodeURIComponent` on route params).
 
 ### What Is Next
-- Nothing outstanding from this task. Continue v1 feature work or bug fixes as needed.
+- No outstanding blockers. Potential next priorities:
+  - UI polish / mockup gaps if any pages need work
+  - Evidence file download support on Vercel (would require object storage like S3 or committing small files)
+  - Any additional data cleanup or new features for the demo
 
 ### Blockers
 - None.
 
 ### Notes for Next Agent
-- `AGENTS.md` is the file to edit when broadcasting new rules to all agents. Do not edit `CLAUDE.md`.
-- The v1 build is fully validated (`typecheck` + `build` passed). DB is seeded. Dev server requires `trust-hub.db` to exist before starting (see §8).
+- Binary proof files (105 files, ~30MB total) live only at `seed-data/hyperproof-export/proof/` on Owen's laptop — gitignored. Evidence metadata shows on Vercel but files aren't downloadable there.
+- Known HP user IDs are hardcoded in `KNOWN_HP_USERS` in `scripts/seed.ts`. If new user IDs appear in future exports, add them there.
+- Hyperproof contract ending — `scripts/scrape-hyperproof.ts` requires a fresh `SESSION_TOKEN` from browser DevTools if it needs to be re-run. Token lasts a few hours.
+- After any seed change: `rm -f trust-hub.db trust-hub.db-shm trust-hub.db-wal && npm run seed`, then restart `npm run dev`.
